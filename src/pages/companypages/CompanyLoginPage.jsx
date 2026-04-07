@@ -53,6 +53,7 @@ export default function CompanyLoginPage() {
 
         <div className="auth-footer-links">
           <Link to="/company">Preview company dashboard</Link>
+          <Link to="/admin">Preview admin dashboard</Link>
           <Link to="/">Back to project home</Link>
         </div>
       </div>
