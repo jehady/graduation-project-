@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Khadmeni Admin - Order Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1A3D7C",
+                        "accent": "#FF8C42",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121720",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex min-h-screen overflow-x-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-white border-r border-slate-200 flex flex-col shrink-0">
+<div class="p-6 flex items-center gap-3">
+<div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">handyman</span>
+</div>
+<div>
+<h1 class="text-primary font-bold text-lg leading-tight">Khadmeni</h1>
+<p class="text-slate-500 text-xs uppercase tracking-wider font-semibold">Admin Panel</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">engineering</span>
+<span class="text-sm font-medium">Providers</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span class="text-sm font-medium">Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">corporate_fare</span>
+<span class="text-sm font-medium">Companies</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+<span class="text-sm font-bold">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">construction</span>
+<span class="text-sm font-medium">Services</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">report_problem</span>
+<span class="text-sm font-medium">Complaints</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">credit_card</span>
+<span class="text-sm font-medium">Subscriptions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">card_giftcard</span>
+<span class="text-sm font-medium">Rewards</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">campaign</span>
+<span class="text-sm font-medium">Advertisements</span>
+</a>
+<div class="pt-4 mt-4 border-t border-slate-100">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-sm font-medium">System Settings</span>
+</a>
+</div>
+</nav>
+</aside>
+<!-- Main Wrapper -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- Header -->
+<header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 sticky top-0 z-10">
+<div class="flex items-center max-w-md w-full">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-slate-100 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20" placeholder="Search orders, users, providers..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 size-2 bg-accent rounded-full border-2 border-white"></span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-sm font-bold text-slate-900 leading-none">Admin User</p>
+<p class="text-[10px] text-slate-500 font-medium uppercase mt-1">Super Admin</p>
+</div>
+<div class="size-10 rounded-full bg-primary/10 border-2 border-primary/20 bg-cover bg-center" data-alt="Admin user profile picture profile" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBtLtVAmTm37swvbF_KqIgzWwOZgU95VUdyzrHgbg0st7aiN8xd8pBbH4ioVfH2rdAKtc7NufyDyOvv9xQsmj1EOngK5OfrC6k2PGqmgYbUsleovFb4Yus9g_nB94BjQspIXGZ15CKyguM43JB95vlsUcVqhFkmPo4ZfMxe66Vxi6i9iFVxYewTpV9xz356U8QrhnkjmxFVUnE-BT-D56LqKZkPtGqdLthQH_B05ZMfHUopDuYhqkwvWx40zHS2weIl9N0Rt5_Npbs')"></div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="p-8 space-y-8 overflow-y-auto">
+<!-- Breadcrumbs & Title -->
+<div class="space-y-4">
+<nav class="flex items-center gap-2 text-sm font-medium text-slate-500">
+<a class="hover:text-primary transition-colors" href="#">Orders</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-slate-900">Order #ORD-9921</span>
+</nav>
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<h2 class="text-3xl font-black text-slate-900 tracking-tight">Order #ORD-9921 Details</h2>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 uppercase tracking-wider border border-emerald-200">
+<span class="size-1.5 bg-emerald-500 rounded-full mr-2"></span>
+                                Completed
+                            </span>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-[20px]">download</span>
+                                Download Invoice
+                            </button>
+<button class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+                                Contact Support
+                            </button>
+</div>
+</div>
+</div>
+<!-- Transaction Summary -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Service Type</p>
+<div class="flex items-center gap-3">
+<div class="size-10 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<p class="text-xl font-bold text-slate-900">Plumbing</p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Total Price</p>
+<div class="flex items-center gap-3">
+<div class="size-10 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<p class="text-xl font-bold text-slate-900">120.00 TND</p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Request Date</p>
+<div class="flex items-center gap-3">
+<div class="size-10 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<p class="text-xl font-bold text-slate-900">Oct 24, 2023</p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Payment Method</p>
+<div class="flex items-center gap-3">
+<div class="size-10 bg-slate-50 rounded-lg flex items-center justify-center text-slate-600">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<p class="text-xl font-bold text-slate-900">Credit Card</p>
+</div>
+</div>
+</div>
+<!-- Main Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Parties Info -->
+<div class="lg:col-span-1 space-y-8">
+<!-- Customer Info -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+<div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+<h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Customer Details</h3>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-4 mb-6">
+<div class="size-14 rounded-full bg-slate-200 bg-cover bg-center" data-alt="Customer avatar Amira Ben Salem" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3-RlyexHrw5WDHPAfqigxLxBa0uMK3wqD6cOb_fl6qDxVV5uaPCE8Yd6Gsflj0_Yw6uKDDD2POVKMY9fpdK1kUZPYEJGmM0kcXo0IsoMEedLmNZNTU0ym5YQUvsQqz8XArzEAmeuW-H4veUBS9qYkGZgduaMrlWDTAZBVdgtq5Vdl_72AlH8DrisTJMOuLkzHxie4tokAV32oyPug-bldve0NWik8Q62wG3cigSS99V-5WgQzt2kYLw31D1dUTESPfdrtjjvaxVY')"></div>
+<div>
+<p class="text-lg font-bold text-slate-900 leading-none">Amira Ben Salem</p>
+<div class="flex items-center gap-1 text-orange-400 mt-2">
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="material-symbols-outlined text-[16px]">star_half</span>
+<span class="text-xs font-bold text-slate-500 ml-1">4.5</span>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400">mail</span>
+<span class="text-slate-600 font-medium">amira.salem@email.com</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400">call</span>
+<span class="text-slate-600 font-medium">+216 22 456 789</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400">location_on</span>
+<span class="text-slate-600 font-medium">Les Berges du Lac 1, Tunis</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Provider Info -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+<div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+<h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Provider Details</h3>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-4 mb-6">
+<div class="size-14 rounded-full bg-slate-200 bg-cover bg-center" data-alt="Provider avatar Ahmed Dridi" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4a9ODT9UE_UbkxbSt1esgrONDawyzvPJGK0OA6ODt-lOmGiSZ0YOPgccj8_4DPTKILF9SAGjL6sllzUMNVU0-Fst7IQ4FAf_UhSB-RqW9qsvMotisuY3PoRgxyNO3Ac1ZvMbHIzwS2kD9giiOjB3dA-XF_1RO8gdJdsgsTA1YdR-LB5easlxSf_OEY_LL6vsXwmxFQybwXalNzQ3orErYw7L18kQD1U9TnTH7PqA-2Ovhe1SUlU_8f4o-rftnmplS3qLD2DhCzVo')"></div>
+<div>
+<p class="text-lg font-bold text-slate-900 leading-none">Ahmed Dridi</p>
+<div class="flex items-center gap-1 text-orange-400 mt-2">
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="text-xs font-bold text-slate-500 ml-1">5.0</span>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400">badge</span>
+<span class="text-slate-600 font-medium">Verified Specialist</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400">call</span>
+<span class="text-slate-600 font-medium">+216 55 123 456</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400">emoji_events</span>
+<span class="text-slate-600 font-medium">1,240 Jobs Completed</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Timeline & Service -->
+<div class="lg:col-span-2 space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Service Details Card -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+<div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+<h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Service Details</h3>
+</div>
+<div class="p-6 flex-1 space-y-4">
+<div class="p-4 bg-slate-50 rounded-lg">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Service Task</p>
+<p class="text-lg font-bold text-slate-900">Leak Repair - Master Bathroom</p>
+</div>
+<div class="space-y-3">
+<p class="text-sm text-slate-600 italic">"The pipe under the sink has a major leak. Water is dripping into the cabinet and causing damage."</p>
+<div class="grid grid-cols-2 gap-2">
+<div class="aspect-square bg-slate-100 rounded-lg border border-slate-200 bg-cover bg-center" data-alt="Plumbing leak image 1" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6eGRYH-As8Qd9EPM9nrDqVKc-nEdPWzZTMq2wtqgz6OKwgtmamtzpskj-kgiQ6EkLTNk8d4hQVYiNeCz1FfIJ3IhKQt6UcsqsEfAYk7zZX5mKWn8r5vTHZXZu3zdqTOT6iZ18-PIxKz7mCrrwS-ovtmvOYeKZ_oZ_iqmUIXEWOeWxt7FxhTlXuXjPFhv1d9usqG-Z-yNleoO8ZL73H24OupURW62pDe1cx8l5FG1N6Esj9GuZNrHjjMCPnjV9dcmfXy1YD4MnoQM')"></div>
+<div class="aspect-square bg-slate-100 rounded-lg border border-slate-200 bg-cover bg-center" data-alt="Plumbing leak image 2" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4RiKoqfedVnfBIOJWvwvPqfpgWL8D3ad0IbZlJUwr5qiZ_70ew2nJD1ZxyyV3TNDp4wW4TnIITAZ1eMdUqb6AcaPQaNB62ODomHgp9hQ3RXhhqOb-TqA80GWlAkgBJ_8bu-pvUzSHd2PFYK6dhC5jsyNh1eZK2Dli_4Mk2JBN9t3IOsHJRqhrpSsffSjP5sDIq34ZtHwPKQz3cVjIFu2-hVnAe8nm1ssH_Qts88sTgLmgJcl8U-H0R-K-EJzXgbvJcr1Bj3zAi-c')"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Timeline -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+<div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+<h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Order Timeline</h3>
+</div>
+<div class="p-6">
+<div class="relative space-y-8 after:absolute after:left-4 after:top-2 after:bottom-2 after:w-0.5 after:bg-slate-100">
+<!-- Step 1 -->
+<div class="relative flex items-start gap-6 z-10">
+<div class="size-8 rounded-full bg-primary flex items-center justify-center text-white ring-4 ring-white">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900">Order Placed</p>
+<p class="text-xs text-slate-500">Oct 24, 2023 - 09:15 AM</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex items-start gap-6 z-10">
+<div class="size-8 rounded-full bg-primary flex items-center justify-center text-white ring-4 ring-white">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900">Provider Assigned</p>
+<p class="text-xs text-slate-500">Oct 24, 2023 - 09:30 AM</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex items-start gap-6 z-10">
+<div class="size-8 rounded-full bg-primary flex items-center justify-center text-white ring-4 ring-white">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900">On the Way</p>
+<p class="text-xs text-slate-500">Oct 24, 2023 - 10:05 AM</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative flex items-start gap-6 z-10">
+<div class="size-8 rounded-full bg-primary flex items-center justify-center text-white ring-4 ring-white">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900">Service Started</p>
+<p class="text-xs text-slate-500">Oct 24, 2023 - 10:20 AM</p>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="relative flex items-start gap-6 z-10">
+<div class="size-8 rounded-full bg-primary flex items-center justify-center text-white ring-4 ring-white">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900">Service Completed</p>
+<p class="text-xs text-slate-500">Oct 24, 2023 - 11:45 AM</p>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="relative flex items-start gap-6 z-10">
+<div class="size-8 rounded-full bg-emerald-500 flex items-center justify-center text-white ring-4 ring-white">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-900">Payment Processed</p>
+<p class="text-xs text-slate-500">Oct 24, 2023 - 11:50 AM</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Admin Tools & Modification Logs -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+<div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex flex-wrap justify-between items-center gap-4">
+<h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Admin Control Center</h3>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold transition-colors">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+                                Force Status Update
+                            </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold transition-colors">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+                                Message Parties
+                            </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-red-50 hover:bg-red-100 text-red-600 rounded-lg text-xs font-bold transition-colors">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+                                Terminate Session
+                            </button>
+</div>
+</div>
+<div class="p-0 overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-slate-100">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase">Action</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase">Modified By</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase">Previous State</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase">New State</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase">Timestamp</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-900">Payment Verification</td>
+<td class="px-6 py-4 text-sm text-slate-600">System (Auto)</td>
+<td class="px-6 py-4">
+<span class="text-xs px-2 py-1 bg-slate-100 text-slate-500 rounded">Awaiting Payment</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs px-2 py-1 bg-emerald-100 text-emerald-600 rounded">Paid</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500 font-mono">2023-10-24 11:50:12</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-900">Provider Re-assignment</td>
+<td class="px-6 py-4 text-sm text-slate-600">Admin_04 (Malek T.)</td>
+<td class="px-6 py-4">
+<span class="text-xs px-2 py-1 bg-slate-100 text-slate-500 rounded">Unassigned</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs px-2 py-1 bg-blue-100 text-blue-600 rounded">Ahmed Dridi</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500 font-mono">2023-10-24 09:30:45</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-900">Order Creation</td>
+<td class="px-6 py-4 text-sm text-slate-600">Customer (App)</td>
+<td class="px-6 py-4">
+<span class="text-xs px-2 py-1 bg-slate-100 text-slate-500 rounded">N/A</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs px-2 py-1 bg-amber-100 text-amber-600 rounded">Pending</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500 font-mono">2023-10-24 09:15:01</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

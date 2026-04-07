@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Khadmeni Dashboard - Available Employees</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error": "#ffffff",
+              "surface-container-low": "#f1f3f7",
+              "on-background": "#0f172a",
+              "outline": "#cbd5e1",
+              "inverse-primary": "#bfdbfe",
+              "on-secondary-fixed-variant": "#ea580c",
+              "surface-container-highest": "#dfe3ea",
+              "secondary-container": "#ffedd5",
+              "on-tertiary-fixed-variant": "#334155",
+              "error": "#ef4444",
+              "inverse-surface": "#1e293b",
+              "tertiary-container": "#334155",
+              "outline-variant": "#e2e8f0",
+              "primary-fixed": "#dbeafe",
+              "surface": "#f6f7f8",
+              "secondary": "#f97316",
+              "on-surface": "#0f172a",
+              "primary-fixed-dim": "#bfdbfe",
+              "surface-dim": "#e2e4e9",
+              "on-tertiary": "#ffffff",
+              "error-container": "#fee2e2",
+              "secondary-fixed": "#ffedd5",
+              "tertiary": "#0f172a",
+              "on-primary-fixed-variant": "#1d4ed8",
+              "on-primary-fixed": "#1e3a8a",
+              "on-error-container": "#7f1d1d",
+              "on-surface-variant": "#64748b",
+              "on-secondary": "#ffffff",
+              "surface-container-high": "#e5e8ee",
+              "tertiary-fixed": "#f1f5f9",
+              "surface-container-lowest": "#ffffff",
+              "surface-tint": "#1a3c7a",
+              "surface-variant": "#f1f5f9",
+              "on-primary-container": "#dbeafe",
+              "on-secondary-fixed": "#7c2d12",
+              "on-primary": "#ffffff",
+              "on-tertiary-container": "#f1f5f9",
+              "on-secondary-container": "#7c2d12",
+              "background": "#f6f7f8",
+              "on-tertiary-fixed": "#0f172a",
+              "surface-bright": "#ffffff",
+              "primary-container": "#1e40af",
+              "inverse-on-surface": "#f8fafc",
+              "primary": "#1a3c7a",
+              "surface-container": "#ebedf2",
+              "tertiary-fixed-dim": "#e2e8f0",
+              "secondary-fixed-dim": "#fed7aa"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body { font-family: 'Inter', sans-serif; }
+      .glass-header {
+        backdrop-filter: blur(12px);
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+      .editorial-shadow {
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar (Shared Component) -->
+<aside class="w-72 bg-primary text-on-primary flex flex-col sticky top-0 h-screen">
+<div class="p-8 flex items-center gap-4">
+<div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary">business</span>
+</div>
+<div>
+<h1 class="font-headline font-black text-xl tracking-tighter">Khadmeni</h1>
+<p class="text-[10px] font-label tracking-widest text-primary-fixed-dim uppercase opacity-70">Service Marketplace</p>
+</div>
+</div>
+<nav class="flex-1 px-4 mt-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-colors text-on-primary/60 hover:bg-white/5" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-colors text-on-primary/60 hover:bg-white/5" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-body font-semibold">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-colors text-on-primary/60 hover:bg-white/5" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body font-semibold">Employees</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 text-on-primary" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-body font-semibold">Available Employees</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-colors text-on-primary/60 hover:bg-white/5" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-body font-semibold">Distribution Logs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-colors text-on-primary/60 hover:bg-white/5" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-body font-semibold">Company Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-colors text-on-primary/60 hover:bg-white/5" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body font-semibold">Settings</span>
+</a>
+</nav>
+<div class="p-6">
+<div class="bg-primary-container p-4 rounded-xl">
+<div class="flex items-center gap-3 mb-3">
+<img alt="Admin Profile" class="w-10 h-10 rounded-full border-2 border-primary-fixed" data-alt="Professional male administrator profile portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNl3MMKPvjmClRIqI3mq-Kd86rEOFuEiMd7bhu-sMQLhuSfYMZp0SUor9d6n0H4D0etji_Yls-3HTZ8o14lJDFW5XZGJswr4H2tHmEDyvgXthwRiE6DzYMp9TqoZCkhjIM0AaKThNY_xAXOm3h7627dZD4pl4g-7f2ysv1ZANxiI75c1VvOu01hAMK1uOjmApXd23CvHTCOWV4RaV7TjgHOXa0ilOghwMhxmLgUVAK9lBYfFF1Enn6E3bS8l1Aci-qe0RKoveJBpQ"/>
+<div>
+<p class="text-sm font-bold text-on-primary-container">Admin User</p>
+<p class="text-xs text-on-primary-container/70">Main Branch</p>
+</div>
+</div>
+<button class="w-full py-2 bg-secondary text-on-secondary font-label text-xs tracking-widest rounded-lg hover:opacity-90 transition-opacity">LOGOUT</button>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="glass-header h-20 border-b border-outline-variant flex items-center justify-between px-10 sticky top-0 z-10">
+<div class="flex items-center gap-8 flex-1">
+<h2 class="font-headline font-black text-2xl text-primary tracking-tight">Available Employees</h2>
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-xl text-sm focus:ring-2 focus:ring-primary" placeholder="Search by name, skill, or department..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-6 w-[1px] bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Manager</p>
+<p class="text-sm font-semibold text-primary">Khadmeni Dashboard</p>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-10 space-y-10">
+<!-- Hero Stats / Editorial Section -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="md:col-span-2 bg-primary rounded-xl p-8 text-on-primary relative overflow-hidden flex flex-col justify-between editorial-shadow">
+<div class="relative z-10">
+<h3 class="font-headline font-black text-4xl mb-2">34</h3>
+<p class="font-label text-xs tracking-[0.2em] text-primary-fixed-dim uppercase">Active Talent Pool</p>
+</div>
+<div class="mt-8 relative z-10">
+<p class="text-sm opacity-80 max-w-xs leading-relaxed">Your available workforce is currently at 82% capacity. Orchestrate your next task with ease.</p>
+</div>
+<!-- Abstract Background Decorative Element -->
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-secondary rounded-full blur-3xl opacity-20"></div>
+<div class="absolute right-10 top-10 w-12 h-12 bg-white/10 rounded-lg transform rotate-12"></div>
+</div>
+<div class="bg-surface-bright rounded-xl p-8 border border-outline-variant flex flex-col justify-center editorial-shadow">
+<p class="font-label text-xs tracking-widest text-on-surface-variant uppercase mb-4">Availability</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-headline font-black text-on-surface">12</span>
+<span class="text-sm font-bold text-green-500 uppercase tracking-tighter">Ready</span>
+</div>
+<div class="w-full h-1 bg-surface-container mt-4 rounded-full overflow-hidden">
+<div class="bg-green-500 h-full w-[35%]"></div>
+</div>
+</div>
+<div class="bg-surface-bright rounded-xl p-8 border border-outline-variant flex flex-col justify-center editorial-shadow">
+<p class="font-label text-xs tracking-widest text-on-surface-variant uppercase mb-4">Urgent Tasks</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-headline font-black text-secondary">08</span>
+<span class="text-sm font-bold text-secondary uppercase tracking-tighter">Queue</span>
+</div>
+<div class="w-full h-1 bg-surface-container mt-4 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[60%]"></div>
+</div>
+</div>
+</section>
+<!-- Filters Section -->
+<section class="flex flex-wrap items-center justify-between gap-6">
+<div class="flex items-center gap-3">
+<button class="px-6 py-2.5 bg-primary text-on-primary rounded-full text-xs font-bold tracking-widest uppercase shadow-lg shadow-primary/20">All Employees</button>
+<button class="px-6 py-2.5 bg-surface-container-low text-on-surface-variant rounded-full text-xs font-bold tracking-widest uppercase hover:bg-surface-container transition-colors">Designers</button>
+<button class="px-6 py-2.5 bg-surface-container-low text-on-surface-variant rounded-full text-xs font-bold tracking-widest uppercase hover:bg-surface-container transition-colors">Engineers</button>
+<button class="px-6 py-2.5 bg-surface-container-low text-on-surface-variant rounded-full text-xs font-bold tracking-widest uppercase hover:bg-surface-container transition-colors">Marketing</button>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-xl text-sm font-semibold text-on-surface-variant">
+<span class="material-symbols-outlined text-base">filter_list</span>
+<span>Sort: Newest</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-xl text-sm font-semibold text-on-surface-variant">
+<span class="material-symbols-outlined text-base">grid_view</span>
+<span class="material-symbols-outlined text-base opacity-40">list</span>
+</div>
+</div>
+</section>
+<!-- Grid of Cards -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-bright rounded-xl p-6 border border-outline-variant hover:border-primary/20 transition-all group editorial-shadow">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Employee Photo" class="w-16 h-16 rounded-xl object-cover" data-alt="Male employee with glasses and friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqPww6i-elJJXVOB3a3RCpoheZRYRYNP1jFHhwACidymqaMXhbhqPbQL5Z0ZIPrrnKq8wKorh0Af2DsqvoH5ZmaETppHe1EOSTHZvr_cQQGHcdOge25G4LoEhqlWN4xBwHDa6kB94YhLA5f9uXPw728eh6HGQhErAA7O34STRL10ALxoaFi7lkkPbk3J6qisADmGmx6XjPuje8wgdXIE9yN3r2-9PULrOTnj8verqzEXPvPb1JM6X8RrAf3Gh0GhGe4nr39Aopfhg"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-green-500 border-2 border-white"></div>
+</div>
+<div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Marcus Chen</h4>
+<p class="text-xs font-label uppercase tracking-wider text-on-surface-variant">Lead Designer</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-green-50 text-[10px] font-black text-green-600 rounded-full tracking-widest uppercase">AVAILABLE</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-end">
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Workload</p>
+<p class="text-xs font-black text-primary">2 / 5 Tasks</p>
+</div>
+<div class="w-full h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 40%;"></div>
+</div>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface-container text-[10px] font-bold text-on-surface-variant rounded uppercase tracking-tighter">UI Design</span>
+<span class="px-2 py-1 bg-surface-container text-[10px] font-bold text-on-surface-variant rounded uppercase tracking-tighter">Branding</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="py-3 px-4 bg-surface-container-low text-primary font-bold text-[11px] tracking-widest uppercase rounded-lg hover:bg-surface-container transition-colors">VIEW PROFILE</button>
+<button class="py-3 px-4 bg-secondary text-on-secondary font-bold text-[11px] tracking-widest uppercase rounded-lg hover:opacity-90 transition-opacity">ASSIGN TASK</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-bright rounded-xl p-6 border border-outline-variant hover:border-primary/20 transition-all group editorial-shadow">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Employee Photo" class="w-16 h-16 rounded-xl object-cover" data-alt="Female employee with professional look and smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMehABmYiQX5kYBerc04dyRBpqAsEATOSzXytMr2TFhK8VrPWrGbiWhv_ANcc74O6z4DM8x0mKpwdwEpiM9pi8ahieSTk73GPQKF8WRfuPfh_8CTGFhTzOMRt4IYzNFdHMHJM5UUsB6tfaDfeDR20bwiJX29hbnzju_SmeMahZppBhJZIgcguCVQXefw8w5Yy3VkggiSXdqKdTZh4LnWlZ--wJzmEb4zfGo39OydA9OAWu-8TOQRd-D-pXq_EcomPacotDR1aowe4"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-yellow-400 border-2 border-white"></div>
+</div>
+<div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Sarah Jenkins</h4>
+<p class="text-xs font-label uppercase tracking-wider text-on-surface-variant">Marketing Specialist</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-yellow-50 text-[10px] font-black text-yellow-600 rounded-full tracking-widest uppercase">BUSY</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-end">
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Workload</p>
+<p class="text-xs font-black text-primary">4 / 5 Tasks</p>
+</div>
+<div class="w-full h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 80%;"></div>
+</div>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface-container text-[10px] font-bold text-on-surface-variant rounded uppercase tracking-tighter">Content</span>
+<span class="px-2 py-1 bg-surface-container text-[10px] font-bold text-on-surface-variant rounded uppercase tracking-tighter">SEO</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="py-3 px-4 bg-surface-container-low text-primary font-bold text-[11px] tracking-widest uppercase rounded-lg hover:bg-surface-container transition-colors">VIEW PROFILE</button>
+<button class="py-3 px-4 bg-secondary text-on-secondary font-bold text-[11px] tracking-widest uppercase rounded-lg hover:opacity-90 transition-opacity">ASSIGN TASK</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-bright rounded-xl p-6 border border-outline-variant hover:border-primary/20 transition-all group editorial-shadow">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Employee Photo" class="w-16 h-16 rounded-xl object-cover" data-alt="Male employee profile for a software engineer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCizb-kM5kVFKWW-GCGfexfNBoB525gV9kONPlhvIkwp9r5lsRzLLLc_8Ob5eTnmQxwGFo5mE3KV29e0wnoG0vOpSlgKG48mhl7p09nuJjViP02uW7jUqeZKfk1vLOZqry1MmSJuG_CS0PJJBm2HU5oXg0jkOTrPI2tpLv2za1uh3yvpamZ3MAKdBQIbk6HT9iOlawAm8-ZPXNcMdwWpFZwrYtu54jeebpLBFJhYag1uFndpxuOotVXixcAMIXzjST2TpAJGHarnYA"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-green-500 border-2 border-white"></div>
+</div>
+<div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Ahmad Khalid</h4>
+<p class="text-xs font-label uppercase tracking-wider text-on-surface-variant">Full Stack Dev</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-green-50 text-[10px] font-black text-green-600 rounded-full tracking-widest uppercase">AVAILABLE</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-end">
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Workload</p>
+<p class="text-xs font-black text-primary">0 / 5 Tasks</p>
+</div>
+<div class="w-full h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 5%;"></div>
+</div>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface-container text-[10px] font-bold text-on-surface-variant rounded uppercase tracking-tighter">Node.js</span>
+<span class="px-2 py-1 bg-surface-container text-[10px] font-bold text-on-surface-variant rounded uppercase tracking-tighter">AWS</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="py-3 px-4 bg-surface-container-low text-primary font-bold text-[11px] tracking-widest uppercase rounded-lg hover:bg-surface-container transition-colors">VIEW PROFILE</button>
+<button class="py-3 px-4 bg-secondary text-on-secondary font-bold text-[11px] tracking-widest uppercase rounded-lg hover:opacity-90 transition-opacity">ASSIGN TASK</button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-bright rounded-xl p-6 border border-outline-variant hover:border-primary/20 transition-all group editorial-shadow">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Employee Photo" class="w-16 h-16 rounded-xl object-cover" data-alt="Confident female employee in business attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATRd7wjemE458bvKZJK3VCQixGwKKBnh616qsmfjkww_nlUQQ-0_R9RGJQqvIBlJXsQXsImT-BmE6esIiKIDfesGbrcjSEEYbny8hJusSNqJbEEJhv05654rdi2I3tvoiCcKqppbx8lFrQblUqF40PelAJpbgJbqmVYNx3X5Nwh_UmKLoseDNyVkh5jSk-W--RZfleHYAgrOjZJT4bszqJS2jebIBli4YO589WIFQkHo_am62qDbbL-iyPnUwQO8fx1hn87Ksk2bA"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-slate-400 border-2 border-white"></div>
+</div>
+<div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Elena Rodriguez</h4>
+<p class="text-xs font-label uppercase tracking-wider text-on-surface-variant">Project Manager</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-slate-100 text-[10px] font-black text-slate-500 rounded-full tracking-widest uppercase">OFFLINE</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-end">
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Workload</p>
+<p class="text-xs font-black text-primary">3 / 5 Tasks</p>
+</div>
+<div class="w-full h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 60%;"></div>
+</div>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface-container text-[10px] font-bold text-on-surface-variant rounded uppercase tracking-tighter">Agile</span>
+<span class="px-2 py-1 bg-surface-container text-[10px] font-bold text-on-surface-variant rounded uppercase tracking-tighter">Scrum</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="py-3 px-4 bg-surface-container-low text-primary font-bold text-[11px] tracking-widest uppercase rounded-lg hover:bg-surface-container transition-colors">VIEW PROFILE</button>
+<button class="py-3 px-4 bg-secondary text-on-secondary font-bold text-[11px] tracking-widest uppercase rounded-lg hover:opacity-90 transition-opacity" disabled="">OFFLINE</button>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-bright rounded-xl p-6 border border-outline-variant hover:border-primary/20 transition-all group editorial-shadow">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Employee Photo" class="w-16 h-16 rounded-xl object-cover" data-alt="Senior male employee with experienced expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUwlldlH1Qntbwg4VHxKX-2a2iSiRSREn1EAEpOeVfw_2YyQsCHt27BwY_UA0F_Osdiy9RL_PBZlg5fv5--tj6DZMgVjUoyNpg9R0FmN43OSYGuVq5D3cxRQ6yrmyHIyPPERkO_7biB9KHOZhlUkEfo-Vdvq94Y1W18dmHUMTFOckP9zt2YrG2JHaEjymL4Pt2EQbCRmdpeyVji5DuvRP9ELxRsqKZlgw2SqW-0VNBt5A3I4z6BG3pGrLKRqHg_qXS96p8gx6ld8s"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-green-500 border-2 border-white"></div>
+</div>
+<div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Julian Vose</h4>
+<p class="text-xs font-label uppercase tracking-wider text-on-surface-variant">DevOps Lead</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-green-50 text-[10px] font-black text-green-600 rounded-full tracking-widest uppercase">AVAILABLE</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-end">
+<p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Workload</p>
+<p class="text-xs font-black text-primary">1 / 5 Tasks</p>
+</div>
+<div class="w-full h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 20%;"></div>
+</div>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface-container text-[10px] font-bold text-on-surface-variant rounded uppercase tracking-tighter">Kubernetes</span>
+<span class="px-2 py-1 bg-surface-container text-[10px] font-bold text-on-surface-variant rounded uppercase tracking-tighter">CI/CD</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="py-3 px-4 bg-surface-container-low text-primary font-bold text-[11px] tracking-widest uppercase rounded-lg hover:bg-surface-container transition-colors">VIEW PROFILE</button>
+<button class="py-3 px-4 bg-secondary text-on-secondary font-bold text-[11px] tracking-widest uppercase rounded-lg hover:opacity-90 transition-opacity">ASSIGN TASK</button>
+</div>
+</div>
+<!-- Add New Employee Card (Ghost Style) -->
+<div class="rounded-xl border-2 border-dashed border-outline-variant hover:border-primary transition-all flex flex-col items-center justify-center p-8 gap-4 bg-surface/50 group">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-3xl">person_add</span>
+</div>
+<div class="text-center">
+<p class="font-bold text-on-surface">Add New Employee</p>
+<p class="text-xs text-on-surface-variant max-w-[140px] mt-1">Onboard more talent to your pool.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer / Orchestrator View -->
+<footer class="mt-auto p-10 bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-wrap gap-8 justify-between items-center">
+<div class="flex items-center gap-10">
+<div>
+<p class="text-[10px] font-black tracking-widest uppercase text-on-surface-variant mb-1">Total Onboarded</p>
+<p class="text-xl font-headline font-black text-primary">1,248</p>
+</div>
+<div>
+<p class="text-[10px] font-black tracking-widest uppercase text-on-surface-variant mb-1">Success Rate</p>
+<p class="text-xl font-headline font-black text-secondary">98.2%</p>
+</div>
+<div>
+<p class="text-[10px] font-black tracking-widest uppercase text-on-surface-variant mb-1">Response Time</p>
+<p class="text-xl font-headline font-black text-primary">2.4 hrs</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="px-4 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary text-xs font-bold">1</button>
+<button class="px-4 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-xs font-bold">2</button>
+<button class="px-4 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-xs font-bold">3</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

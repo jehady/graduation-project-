@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Company Details | Khadmeni Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#1A3D7C",
+                "secondary": "#FF8C42",
+                "background-light": "#f6f7f8",
+                "background-dark": "#121720",
+              },
+              fontFamily: {
+                "display": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex min-h-screen">
+<!-- Sidebar -->
+<aside class="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col fixed h-full">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">corporate_fare</span>
+</div>
+<div>
+<h1 class="text-sm font-bold leading-tight">Khadmeni Admin</h1>
+<p class="text-xs text-slate-500">Super Admin</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">domain</span>
+<span class="text-sm font-medium">Companies</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-sm font-medium">Jobs</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm font-medium">Financials</span>
+</a>
+<div class="pt-4 border-t border-slate-100 dark:border-slate-800 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</div>
+</nav>
+<div class="p-4 bg-slate-50 dark:bg-slate-800/50 m-4 rounded-xl">
+<div class="flex items-center gap-3">
+<img class="size-8 rounded-full bg-slate-200" data-alt="Admin user profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArMZl9PRaRrGuNfWzffzAON1TFIsv95XO48UlfOIdWTB679IjSlAusNQgykuIyfEWj-NXDzJPDZOb_Lo3XurSCbKVQiSk8NXG0RSl37RDaBsQGptpMDQmDBwEn3d1U2bech7UL1cnfvv6BZAdjSE1HyKW9k-OSAFB9zn-RdBMmpIHwC3VAFVlolZxM7UoJ3K3ucw64J2dfeJrZZkm3tNHfyikpNXK9VLPsyIaqxCSbBNJ5bmiNgfXNyrz85EB6BCBkrnna5gjyuLk"/>
+<div class="overflow-hidden">
+<p class="text-xs font-bold truncate">Alex Johnson</p>
+<p class="text-[10px] text-slate-500">Log out</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 ml-64">
+<!-- Header -->
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-10 px-8 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<h2 class="text-lg font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined">edit_note</span>
+                    Edit Company
+                </h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="pl-10 pr-4 py-1.5 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:ring-primary focus:border-primary w-64" placeholder="Search companies..." type="text"/>
+</div>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:border-slate-800 mx-1"></div>
+<img class="size-8 rounded-full" data-alt="Current administrator avatar small" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ7vjs1uITgtn0V7OnPrf6Szc_dWaYgFBaKAKdtXEGgqURKFqCxBe2qAuHInmOwD_WabN4ONsdjiiGywps0VXFIHbIMmcvFzVca5ihIkeXdHWojuvnhxVwsx2QfLIcr7cdS_eLlM01yzaPJjLwrtLwh-d2t4WU68ztwgut7vLscr1ugzynvlg1V9O84fbOIywwRfjt2cV3nobiXvFkGfiO17TNYgZXomHK_xLxQZXVftYVJ_CpauNWvzBysPiSWEaIuEKIvr2SK1o"/>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-8 max-w-5xl mx-auto">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+<a class="hover:text-primary" href="#">Dashboard</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<a class="hover:text-primary" href="#">Companies</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-slate-900 dark:text-slate-100 font-medium">Edit Khadmeni Corp</span>
+</nav>
+<!-- Page Title & Actions -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<h1 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Edit Company Details</h1>
+<p class="text-slate-500 mt-1">Update registration, legal, and operational data for Khadmeni Corp (ID: 8829)</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                        Public Profile
+                    </button>
+<button class="px-4 py-2 text-sm font-semibold text-white bg-primary rounded-lg hover:bg-primary/90 transition-shadow shadow-lg shadow-primary/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">save</span>
+                        Save Changes
+                    </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Form Main -->
+<div class="lg:col-span-2 space-y-8">
+<!-- General Information -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span>
+<h3 class="font-bold">General Information</h3>
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2 col-span-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Company Name</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary" type="text" value="Khadmeni Corp"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Industry</label>
+<select class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary">
+<option>Technology</option>
+<option>Construction</option>
+<option>Services</option>
+<option>Finance</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Foundation Year</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary" type="number" value="2015"/>
+</div>
+<div class="space-y-2 col-span-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Company Description</label>
+<textarea class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary" rows="3">Leading workforce solution provider in North Africa, connecting talent with enterprise opportunities since 2015.</textarea>
+</div>
+</div>
+</section>
+<!-- Contact Details -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">contact_page</span>
+<h3 class="font-bold">Contact &amp; Social</h3>
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Primary Email</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary" type="email" value="contact@khadmeni.corp"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Phone Number</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary" type="tel" value="+216 71 888 999"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Website</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary" type="url" value="https://khadmeni.corp"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">LinkedIn</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary" type="text" value="linkedin.com/company/khadmeni"/>
+</div>
+</div>
+</section>
+<!-- Address Information -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<h3 class="font-bold">Headquarters Address</h3>
+</div>
+<div class="p-6 space-y-6">
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Street Address</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary" type="text" value="12 Avenue Habib Bourguiba"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">City</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary" type="text" value="Tunis"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Postal Code</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary" type="text" value="1001"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Country</label>
+<select class="w-full rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary">
+<option>Tunisia</option>
+<option>Morocco</option>
+<option>Egypt</option>
+<option>France</option>
+</select>
+</div>
+</div>
+<div class="aspect-video w-full rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 overflow-hidden relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Map showing Tunis city center location" data-location="Tunis" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDLZUG-dfIZ0Zpu95QHFVE1-dMezMc89qoGfOz6OQ-FusJLC_2EQRbSNGXs_FnlIZFltqKdKIrjT-U41fRp9uDeR_a3fQ9l13sdzpv0vnNHjl4zKxY3OCrs-ZKNdXgF55jO7hmjvegv1ykfuwn_WtVLwaLALJIAStj15Rlictdnis65mhY0ml62-kvUcHf9B7e8NS6lftqZYkIiHzzDlPjMcFPoyyf9cMbOdIQD7CLsbJXdvA7oyu0ShPTG5KYYrWGHdnwQiCUCG1k')"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1">location_on</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar Status & Metadata -->
+<div class="space-y-6">
+<!-- Status Management -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm p-6">
+<h3 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+                            Company Status
+                        </h3>
+<div class="space-y-3">
+<label class="flex items-center p-3 rounded-lg border-2 border-green-100 bg-green-50 dark:bg-green-900/10 dark:border-green-900/30 cursor-pointer">
+<input checked="" class="text-green-600 focus:ring-green-500 border-slate-300" name="status" type="radio" value="active"/>
+<div class="ml-3">
+<span class="block text-sm font-bold text-green-700 dark:text-green-400">Active</span>
+<span class="block text-[10px] text-green-600/80">Full access to platform</span>
+</div>
+</label>
+<label class="flex items-center p-3 rounded-lg border-2 border-slate-100 bg-slate-50 dark:bg-slate-800 dark:border-slate-700 cursor-pointer">
+<input class="text-amber-600 focus:ring-amber-500 border-slate-300" name="status" type="radio" value="review"/>
+<div class="ml-3">
+<span class="block text-sm font-bold text-amber-700 dark:text-amber-400">Under Review</span>
+<span class="block text-[10px] text-amber-600/80">Pending manual verification</span>
+</div>
+</label>
+<label class="flex items-center p-3 rounded-lg border-2 border-slate-100 bg-slate-50 dark:bg-slate-800 dark:border-slate-700 cursor-pointer">
+<input class="text-red-600 focus:ring-red-500 border-slate-300" name="status" type="radio" value="banned"/>
+<div class="ml-3">
+<span class="block text-sm font-bold text-red-700 dark:text-red-400">Banned</span>
+<span class="block text-[10px] text-red-600/80">Restricted from all activity</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Legal Information -->
+<section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm p-6">
+<h3 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">gavel</span>
+                            Legal Details
+                        </h3>
+<div class="space-y-4">
+<div class="space-y-1">
+<label class="text-[10px] font-bold text-slate-500 uppercase">Tax ID / RNE</label>
+<p class="text-sm font-mono bg-slate-100 dark:bg-slate-800 p-2 rounded border border-slate-200 dark:border-slate-700">TN-12499238-X</p>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold text-slate-500 uppercase">Registered On</label>
+<p class="text-sm">October 24, 2021</p>
+</div>
+<div class="pt-2">
+<button class="w-full text-xs font-bold text-primary flex items-center justify-center gap-2 py-2 border border-primary/20 bg-primary/5 rounded-lg hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-sm">attachment</span>
+                                    View Registration Docs
+                                </button>
+</div>
+</div>
+</section>
+<!-- Danger Zone -->
+<section class="bg-red-50 dark:bg-red-900/10 rounded-xl border border-red-200 dark:border-red-900/30 overflow-hidden p-6">
+<h3 class="font-bold text-red-700 dark:text-red-400 mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">report_problem</span>
+                            Danger Zone
+                        </h3>
+<p class="text-xs text-red-600 dark:text-red-400/70 mb-4 leading-relaxed">Deactivating this company will revoke access for all associated employees immediately.</p>
+<button class="w-full px-4 py-2 text-xs font-bold text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors">
+                            Deactivate Company Account
+                        </button>
+</section>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 flex justify-end gap-4">
+<button class="px-6 py-2.5 text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors">
+                    Discard Changes
+                </button>
+<button class="px-8 py-2.5 text-sm font-bold text-white bg-primary rounded-lg hover:bg-primary/90 transition-all shadow-xl shadow-primary/20">
+                    Save and Apply Changes
+                </button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

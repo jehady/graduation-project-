@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Khadmeni Admin - Advertisements Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a3c7a",
+                        "accent-orange": "#FF8C42",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121720",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col h-full">
+<div class="p-6 flex items-center gap-3 border-b border-slate-100 dark:border-slate-800">
+<div class="bg-primary size-10 rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<div>
+<h1 class="text-primary font-bold text-lg leading-tight">Khadmeni</h1>
+<p class="text-slate-500 text-xs font-medium">Admin Dashboard</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Service Providers</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary text-white rounded-lg shadow-sm shadow-primary/30" href="#">
+<span class="material-symbols-outlined">ads_click</span>
+<span class="text-sm font-medium">Advertisements</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="text-sm font-medium">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-primary/10 hover:text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+<div class="size-8 rounded-full bg-slate-200" data-alt="Administrator profile avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZqQmsxGGXWj3FPJIPSAtWclj65dlYjMVwgez9qwk7iftC-rjPfylLrIjG3Rj4aEGdXj4w3FBpF5X6HS41VeJslrcWjsp-Y9E6tU_O_uLKI70JOgXwsUU8q2IUXP4zo9TSogss0INXUklf_-1GDDrsw_P9-Ckau0VY_GDXA5lhY1i9Bp2JilnFedFeyq89FK70q45kdagWaEnIo0PSSawQV26iF2Ie2dRJUZH6mzTFl731pfx3ScBIeZ0QCt7RqKCDmO4XzuOzPMo')"></div>
+<div class="flex-1 overflow-hidden">
+<p class="text-xs font-bold truncate">Alex Johnson</p>
+<p class="text-[10px] text-slate-500 truncate">Super Admin</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-sm">more_vert</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Header Section -->
+<header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 shrink-0">
+<div class="flex items-center gap-6 flex-1">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Advertisements Management</h2>
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20" placeholder="Search by ad name..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="size-10 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-accent-orange rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+<button class="bg-accent-orange hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all shadow-lg shadow-orange-500/20">
+<span class="material-symbols-outlined text-lg">add</span>
+                        New Ad
+                    </button>
+</div>
+</header>
+<!-- Content Body -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- Quick Stats -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="size-10 bg-green-100 dark:bg-green-900/30 text-green-600 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<span class="text-xs font-bold text-green-500">+12.5%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Active Ads</p>
+<h3 class="text-2xl font-bold mt-1">24</h3>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="size-10 bg-primary/10 text-primary flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<span class="text-xs font-bold text-primary">+3.2%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Scheduled Ads</p>
+<h3 class="text-2xl font-bold mt-1">12</h3>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="size-10 bg-red-100 dark:bg-red-900/30 text-red-600 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">history</span>
+</div>
+<span class="text-xs font-bold text-red-500">-1.4%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Expired Ads</p>
+<h3 class="text-2xl font-bold mt-1">158</h3>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="size-10 bg-accent-orange/10 text-accent-orange flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+<span class="text-xs font-bold text-accent-orange">+18.7%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Total Impressions</p>
+<h3 class="text-2xl font-bold mt-1">1.2M</h3>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+<!-- Advertisements Table Container -->
+<div class="xl:col-span-2 space-y-6">
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-4">
+<h3 class="font-bold text-lg">Recent Advertisements</h3>
+<div class="flex gap-2">
+<select class="bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-xs font-medium py-2 focus:ring-0">
+<option>All Placements</option>
+<option>Home Banner</option>
+<option>Sidebar</option>
+<option>Top of Search</option>
+</select>
+<select class="bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-xs font-medium py-2 focus:ring-0">
+<option>All Status</option>
+<option>Active</option>
+<option>Scheduled</option>
+<option>Expired</option>
+</select>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50/50 dark:bg-slate-800/50 text-slate-500 text-[11px] uppercase tracking-wider">
+<th class="px-6 py-4 font-bold">Ad Name</th>
+<th class="px-6 py-4 font-bold">Placement</th>
+<th class="px-6 py-4 font-bold">Start Date</th>
+<th class="px-6 py-4 font-bold">Status</th>
+<th class="px-6 py-4 font-bold">Performance</th>
+<th class="px-6 py-4 font-bold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded bg-slate-100 shrink-0 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Summer Cleaning Promotion banner thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHI7U-BzKAMku1GYj0M7fIu6ehcX6Q3bvoQ7doFcDzHHmSSkpGu3JJSQsIQwdGgXi1KjyKaDkonWaIZu4JhHZm0RTmoV8xjrYsrY-CIpliRC9v37hTUNFSbXJADn_6mAsZfRyc8wBlhE0O4b0CkeHqmg1jMLwU10elLrS1i9cZjAxLXwziriCsSpL8gxBuf2AgAtZsW7x8yY22yrQuzIS-mZs8VuVz_5-2llFzW8u1UUkAEAevJ4tQq8doNrnt12lAJSn8uleGg7w"/>
+</div>
+<div>
+<p class="text-sm font-bold">Summer Cleaning Promo</p>
+<p class="text-[10px] text-slate-400">ID: #AD-8492</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Home Banner</span>
+</td>
+<td class="px-6 py-4">
+<p class="text-xs">Jun 12, 2023</p>
+<p class="text-[10px] text-slate-400">Ends Jul 12</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400">
+<span class="size-1.5 rounded-full bg-green-500"></span> Active
+                                                </span>
+</td>
+<td class="px-6 py-4">
+<div class="space-y-1">
+<p class="text-[10px] font-medium">12.4k Impr. / 842 Clicks</p>
+<div class="w-24 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 65%"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">analytics</span></button>
+<button class="p-1 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">edit</span></button>
+<button class="p-1 hover:text-red-500 transition-colors"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded bg-slate-100 shrink-0 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Plumbing Expert Sidebar Ad thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdcDerAbrZLy7DPAPi1G4PGOVh-d0dYaSlNHr1GpedZShEx7yzLkMsNgAMig8dD-zpyo1Bi0qdk7Xu2nr5wEJRZmNMhCGHP2wrBxqaT6v3cUKNwBN9IKkmN1Bsz0NfLaZWXDi5UrN5LI4bf468WKkupdPeLY4-qExYYnjFNkRkhdmDzNjxwBIhSEHnzxeNFuLcsD-yuOghwhi4ouHDTWPX-hRIPvhd6uM3L2sHK2QQkMAPfcDkSXX0_QIzBXquQlK36mgIAm0OioU"/>
+</div>
+<div>
+<p class="text-sm font-bold">Plumbing Experts</p>
+<p class="text-[10px] text-slate-400">ID: #AD-2345</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Sidebar</span>
+</td>
+<td class="px-6 py-4">
+<p class="text-xs">Jul 01, 2023</p>
+<p class="text-[10px] text-slate-400">Ends Aug 01</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-400">
+<span class="size-1.5 rounded-full bg-blue-500"></span> Scheduled
+                                                </span>
+</td>
+<td class="px-6 py-4">
+<p class="text-[10px] text-slate-400 font-medium">No data yet</p>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">analytics</span></button>
+<button class="p-1 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">edit</span></button>
+<button class="p-1 hover:text-red-500 transition-colors"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded bg-slate-100 shrink-0 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Electrician Flash Sale search ad thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-yvfrXYXnCaikKk9_P3W6kNOSnYLBAmeP-ZRW1UeOEOIAjIjdnOzw-csr1mgRheQ1WNdUXwVGNzsNN8Tyz6gbgaBuaMSaRJKCxwJLXrm3J50SBUiqfMXiasAPjuBwYkZWCIQM9ojyLnrO7XEqWTYMp447xaI6vKPZnQF80CBfCnlT10t10OLQpYDGYBJANauOcIhlWmhASIjU89qoaLGHpUqtl6zET61U4G06tu2RjJteqzQjVrEpXZSnwxfThQ9rMSM4WMQO6uE"/>
+</div>
+<div>
+<p class="text-sm font-bold">Electrician Flash Sale</p>
+<p class="text-[10px] text-slate-400">ID: #AD-5512</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Top Search</span>
+</td>
+<td class="px-6 py-4">
+<p class="text-xs">May 15, 2023</p>
+<p class="text-[10px] text-slate-400">Ended Jun 15</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300">
+<span class="size-1.5 rounded-full bg-slate-500"></span> Expired
+                                                </span>
+</td>
+<td class="px-6 py-4">
+<div class="space-y-1">
+<p class="text-[10px] font-medium">45.1k Impr. / 3.2k Clicks</p>
+<div class="w-24 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-accent-orange" style="width: 88%"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">analytics</span></button>
+<button class="p-1 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">refresh</span></button>
+<button class="p-1 hover:text-red-500 transition-colors"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<p class="text-xs text-slate-500">Showing 1 to 3 of 194 ads</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 border border-slate-200 dark:border-slate-800 rounded text-xs font-medium hover:bg-slate-50">Previous</button>
+<button class="px-3 py-1 bg-primary text-white rounded text-xs font-medium">1</button>
+<button class="px-3 py-1 border border-slate-200 dark:border-slate-800 rounded text-xs font-medium hover:bg-slate-50">2</button>
+<button class="px-3 py-1 border border-slate-200 dark:border-slate-800 rounded text-xs font-medium hover:bg-slate-50">Next</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Placement Visualization -->
+<div class="space-y-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm h-full">
+<h3 class="font-bold text-lg mb-6">Placement Visualization</h3>
+<div class="relative w-full aspect-[4/5] bg-slate-50 dark:bg-slate-800/30 rounded-xl border-2 border-dashed border-slate-200 dark:border-slate-700 p-4">
+<!-- Mockup of app UI -->
+<div class="w-full h-full flex flex-col gap-4 opacity-50 select-none">
+<div class="h-12 w-full bg-slate-200 dark:bg-slate-700 rounded-lg"></div>
+<div class="flex gap-4">
+<div class="h-24 flex-1 bg-slate-200 dark:bg-slate-700 rounded-lg"></div>
+<div class="h-24 flex-1 bg-slate-200 dark:bg-slate-700 rounded-lg"></div>
+</div>
+<div class="h-40 w-full bg-slate-200 dark:bg-slate-700 rounded-lg"></div>
+<div class="h-24 w-full bg-slate-200 dark:bg-slate-700 rounded-lg"></div>
+</div>
+<!-- Placement Overlays -->
+<div class="absolute inset-4 pointer-events-none">
+<!-- Home Banner -->
+<div class="absolute top-0 left-0 w-full h-12 bg-accent-orange/20 border-2 border-accent-orange rounded-lg flex items-center justify-center pointer-events-auto cursor-help group">
+<span class="text-[10px] font-bold text-accent-orange">HOME BANNER</span>
+<div class="absolute -top-10 bg-slate-900 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                                            Current: 4 Active Ads
+                                        </div>
+</div>
+<!-- Top of Search Overlay -->
+<div class="absolute top-16 left-0 w-[47%] h-24 bg-primary/20 border-2 border-primary rounded-lg flex items-center justify-center pointer-events-auto cursor-help group">
+<span class="text-[10px] font-bold text-primary text-center leading-tight">TOP OF<br/>SEARCH</span>
+<div class="absolute -top-10 bg-slate-900 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                                            Current: 2 Active Ads
+                                        </div>
+</div>
+<!-- Sidebar Overlay -->
+<div class="absolute bottom-0 left-0 w-full h-24 bg-primary/20 border-2 border-primary rounded-lg flex items-center justify-center pointer-events-auto cursor-help group">
+<span class="text-[10px] font-bold text-primary">SIDEBAR (FOOTER WIDGET)</span>
+<div class="absolute -top-10 bg-slate-900 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                                            Current: 1 Active Ad
+                                        </div>
+</div>
+</div>
+</div>
+<div class="mt-8 space-y-4">
+<div class="flex items-center gap-3">
+<div class="size-3 rounded bg-accent-orange"></div>
+<p class="text-xs font-medium">Premium Placements (High CTR)</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="size-3 rounded bg-primary"></div>
+<p class="text-xs font-medium">Standard Placements</p>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg mt-6">
+<p class="text-xs font-bold mb-1">💡 Performance Tip</p>
+<p class="text-[10px] text-slate-500 leading-relaxed">'Home Banner' ads currently have a 12% higher conversion rate compared to 'Sidebar' placements this month.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

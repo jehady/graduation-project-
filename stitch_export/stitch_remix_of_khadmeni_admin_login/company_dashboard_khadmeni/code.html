@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Khadmeni - Company Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a3c7a",
+                        "accent": "#f97316",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121720",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 flex-shrink-0 border-r border-primary/10 bg-white dark:bg-background-dark/50 hidden md:flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary rounded-lg p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl">rocket_launch</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-primary dark:text-slate-100 leading-none">Khadmeni</h1>
+<p class="text-xs text-slate-500 font-medium uppercase tracking-wider mt-1">Corporate Portal</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary text-white" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="text-sm font-medium">Employees</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">how_to_reg</span>
+<span class="text-sm font-medium">Available Talent</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-sm font-medium">Distribution Logs</span>
+</a>
+<div class="pt-4 pb-2">
+<p class="px-3 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Management</p>
+</div>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="text-sm font-medium">Company Profile</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="text-sm font-medium">Statistics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-primary/10">
+<div class="flex items-center gap-3 p-2 bg-slate-100 dark:bg-slate-800/50 rounded-xl">
+<div class="size-10 rounded-full bg-cover bg-center border-2 border-primary" data-alt="Corporate manager profile photo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCttHbfawLYzu-sobtYiUe7I4x4TrenWrYsWrlopDehBBT0uprYfc-0aViSNC8HFMSUShDiLt5Dh1SQP6DB7b8uXRzPDm6bj6W9KZWPQc7XIP8lZ_gMMdi1H9Uodo_c_rKc4ieQxsl1FWaZhZ_lXEK3xkukpnKggHYW_5M6G2xPHL-ygFst6oJiCwvGEd8cTaL-VX1YQSmaBMpUUrmBYaRvFN5NLF5EsVeA80I6NMB2Wdenl7Y0e0z_IycGCiDW44K-kKGx_Eqt7vI');"></div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-bold truncate">Sarah Johnson</p>
+<p class="text-[10px] text-slate-500">Admin Account</p>
+</div>
+<button class="text-slate-400 hover:text-primary">
+<span class="material-symbols-outlined text-lg">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col overflow-y-auto">
+<!-- Header -->
+<header class="flex items-center justify-between px-8 py-4 bg-white dark:bg-background-dark/80 border-b border-primary/10 sticky top-0 z-10 backdrop-blur-md">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="text-xl font-bold">Dashboard Overview</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary w-64" placeholder="Search data..." type="text"/>
+</div>
+<button class="relative p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-accent rounded-full border-2 border-white dark:border-background-dark"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 space-y-8">
+<!-- Welcome Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-3xl font-extrabold tracking-tight">Welcome back, Khadmeni Hub</h1>
+<p class="text-slate-500 mt-1 font-medium">Performance summary for <span class="text-primary font-bold">October 2023</span></p>
+</div>
+<div class="flex gap-2">
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-slate-50">
+<span class="material-symbols-outlined text-lg">calendar_month</span>
+                        Date Range
+                    </button>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-primary/90 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">download</span>
+                        Export Report
+                    </button>
+</div>
+</div>
+<!-- Statistic Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-primary/5 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+<div class="flex items-center gap-3 text-slate-500 mb-3">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+<p class="text-sm font-bold uppercase tracking-wider">Total Orders</p>
+</div>
+<div class="flex items-end justify-between">
+<p class="text-3xl font-extrabold">1,284</p>
+<span class="flex items-center text-emerald-500 text-sm font-bold bg-emerald-50 px-2 py-0.5 rounded-lg">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                            12%
+                        </span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-primary/5 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+<div class="flex items-center gap-3 text-slate-500 mb-3">
+<span class="material-symbols-outlined text-accent">check_circle</span>
+<p class="text-sm font-bold uppercase tracking-wider">Completed</p>
+</div>
+<div class="flex items-end justify-between">
+<p class="text-3xl font-extrabold">945</p>
+<span class="flex items-center text-emerald-500 text-sm font-bold bg-emerald-50 px-2 py-0.5 rounded-lg">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                            5.4%
+                        </span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-primary/5 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-slate-100 dark:bg-slate-700 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+<div class="flex items-center gap-3 text-slate-500 mb-3">
+<span class="material-symbols-outlined">pending_actions</span>
+<p class="text-sm font-bold uppercase tracking-wider">Pending</p>
+</div>
+<div class="flex items-end justify-between">
+<p class="text-3xl font-extrabold">339</p>
+<span class="flex items-center text-rose-500 text-sm font-bold bg-rose-50 px-2 py-0.5 rounded-lg">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+                            2.1%
+                        </span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-primary/5 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+<div class="flex items-center gap-3 text-slate-500 mb-3">
+<span class="material-symbols-outlined text-primary">groups</span>
+<p class="text-sm font-bold uppercase tracking-wider">Available Staff</p>
+</div>
+<div class="flex items-end justify-between">
+<p class="text-3xl font-extrabold">42</p>
+<span class="flex items-center text-emerald-500 text-sm font-bold bg-emerald-50 px-2 py-0.5 rounded-lg">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                            8%
+                        </span>
+</div>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Orders Trend Chart -->
+<div class="lg:col-span-2 bg-white dark:bg-slate-800 p-6 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-lg font-bold">Orders Trend</h3>
+<p class="text-sm text-slate-500">Monthly overview of incoming business</p>
+</div>
+<select class="bg-slate-100 dark:bg-slate-700 border-none rounded-lg text-xs font-bold py-1 px-3">
+<option>Last 6 Months</option>
+<option>Last Year</option>
+</select>
+</div>
+<div class="relative h-[240px] w-full">
+<!-- Custom SVG Chart -->
+<svg class="w-full h-full overflow-visible" viewbox="0 0 500 200">
+<!-- Grid lines -->
+<line class="text-slate-100 dark:text-slate-700" stroke="currentColor" stroke-width="1" x1="0" x2="500" y1="0" y2="0"></line>
+<line class="text-slate-100 dark:text-slate-700" stroke="currentColor" stroke-width="1" x1="0" x2="500" y1="50" y2="50"></line>
+<line class="text-slate-100 dark:text-slate-700" stroke="currentColor" stroke-width="1" x1="0" x2="500" y1="100" y2="100"></line>
+<line class="text-slate-100 dark:text-slate-700" stroke="currentColor" stroke-width="1" x1="0" x2="500" y1="150" y2="150"></line>
+<line class="text-slate-100 dark:text-slate-700" stroke="currentColor" stroke-width="1" x1="0" x2="500" y1="200" y2="200"></line>
+<!-- Area Gradient -->
+<defs>
+<lineargradient id="areaGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#1a3c7a" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#1a3c7a" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,140 Q80,110 160,150 T320,80 T500,60 L500,200 L0,200 Z" fill="url(#areaGradient)"></path>
+<!-- Line -->
+<path d="M0,140 Q80,110 160,150 T320,80 T500,60" fill="none" stroke="#1a3c7a" stroke-linecap="round" stroke-width="3"></path>
+<!-- Points -->
+<circle cx="0" cy="140" fill="#1a3c7a" r="4"></circle>
+<circle cx="160" cy="150" fill="#1a3c7a" r="4"></circle>
+<circle cx="320" cy="80" fill="#1a3c7a" r="4"></circle>
+<circle cx="500" cy="60" fill="#1a3c7a" r="4"></circle>
+</svg>
+</div>
+<div class="flex justify-between mt-4 text-[11px] font-bold text-slate-400 uppercase tracking-tighter">
+<span>May</span>
+<span>Jun</span>
+<span>Jul</span>
+<span>Aug</span>
+<span>Sep</span>
+<span>Oct</span>
+</div>
+</div>
+<!-- Team Performance -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-primary/5 shadow-sm">
+<div class="mb-6">
+<h3 class="text-lg font-bold">Team Performance</h3>
+<p class="text-sm text-slate-500">Efficiency rating by department</p>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-sm font-bold">Logistics Team</span>
+<span class="text-xs font-bold text-emerald-500">92%</span>
+</div>
+<div class="h-2 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[92%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-sm font-bold">Distribution Hub</span>
+<span class="text-xs font-bold text-emerald-500">88%</span>
+</div>
+<div class="h-2 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[88%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-sm font-bold">Quality Control</span>
+<span class="text-xs font-bold text-accent">74%</span>
+</div>
+<div class="h-2 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-accent rounded-full w-[74%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-sm font-bold">Customer Service</span>
+<span class="text-xs font-bold text-emerald-500">95%</span>
+</div>
+<div class="h-2 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[95%]"></div>
+</div>
+</div>
+</div>
+<button class="mt-8 w-full py-2.5 border border-primary/20 text-primary text-sm font-bold rounded-lg hover:bg-primary hover:text-white transition-all">
+                        View Detailed Analytics
+                    </button>
+</div>
+</div>
+<!-- Recent Activity & Available Employees -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-12">
+<!-- Recent Activity Panel -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-primary/5 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center">
+<h3 class="text-lg font-bold">Recent Distribution Activity</h3>
+<button class="text-primary text-sm font-bold hover:underline">See all</button>
+</div>
+<div class="divide-y divide-slate-100 dark:divide-slate-700">
+<div class="p-4 flex gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="size-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100 truncate">Shipment #KHD-9082 Delivered</p>
+<p class="text-xs text-slate-500">Destination: Tunis Main Hub • 14 mins ago</p>
+</div>
+<div class="text-right">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700">DONE</span>
+</div>
+</div>
+<div class="p-4 flex gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100 truncate">New Employee Assigned</p>
+<p class="text-xs text-slate-500">Karim B. assigned to Logistics • 45 mins ago</p>
+</div>
+<div class="text-right">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-700">INFO</span>
+</div>
+</div>
+<div class="p-4 flex gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="size-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">priority_high</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100 truncate">Urgent Order Received</p>
+<p class="text-xs text-slate-500">Medical Supplies • Order #KHD-1022 • 2 hrs ago</p>
+</div>
+<div class="text-right">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-accent/10 text-accent">URGENT</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Available Employees List -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-primary/5 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center">
+<h3 class="text-lg font-bold">Available Talent</h3>
+<button class="bg-primary/10 text-primary px-3 py-1 rounded-lg text-xs font-bold hover:bg-primary/20 transition-colors">View All (42)</button>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700">
+<img alt="" class="size-10 rounded-full" data-alt="Available employee portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7PjU17sHUktZAV6ccJUb7jwcDQrNLWr4tNPP48ghOuxyECnzswTTPCyMPkFKjhs3xZ1S3be9r-RBmnu7WdmxPQxQfFfr53jE9RsapwdtYF25RQOAu55aysFq-z0guRXKNJqchIwp0XrIFGx7XaMTBSVW8nb_wz7Jos5jTNMr92-nmkd5_uUqTEu2Qf5Lyn0SnOQb7rXIrW3gQWX5gykFp-k4NghV02-BUu8qtI3GwN8S-d6xQ5yMl92tOnyKKxdYRDy24cO2yCSU"/>
+<div>
+<p class="text-sm font-bold">Ahmed M.</p>
+<p class="text-[10px] font-medium text-slate-500 uppercase">Driver Class A</p>
+</div>
+<button class="ml-auto size-8 flex items-center justify-center rounded-lg text-primary hover:bg-white dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+</button>
+</div>
+<div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700">
+<img alt="" class="size-10 rounded-full" data-alt="Available employee portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChGGcPO96kONVvpMBgCsF9Lm13K2w3ycSm-UdotWU7p4r9zPuXPKQBFjZs-gl6ljRVlfdgwVZc--WaFI4_wh_-yuW0qEVP06JD3Han9zxQGHDO55xd5_MM11Pw6J1iiaAE5AVm24nxiZz0V4eH7SphFp_ILFWe_adCzTnPHMqaMIVB2YbLMkEZWmPlDaCi3LGUeUMjxgUyU1Aak767pKruBPO0dDIF0OI7p5c3aQOzy21mG-l5_dF9soWokH3Zw7FtIXfBoq4Joig"/>
+<div>
+<p class="text-sm font-bold">Lina R.</p>
+<p class="text-[10px] font-medium text-slate-500 uppercase">Warehouse Spv.</p>
+</div>
+<button class="ml-auto size-8 flex items-center justify-center rounded-lg text-primary hover:bg-white dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+</button>
+</div>
+<div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700">
+<img alt="" class="size-10 rounded-full" data-alt="Available employee portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDigtvZqjNx2yUxfRIg3zBAwe4NWGCgHHC7WFuhOPyNhLjLYPX9ftvDsXi_ImU430g7K9WMJiBD6zRnHybhR7dG3p15L9JgkjvVQmKhqfamLC4-XGtFo01NxORcbpwiSRH04XjZh2Wmd1QAGp8XBs88eA8O5KdL9kI0D7ES0VaqW3ETrcKmzvkditUyFoVS1-dEk9DV4VBYOOTTiyOhl7JIHvwYa9tmX3bN28xwtZS0yOmydPVTVCWWuf1gCHPQXFUJRhC9R3ssVSo"/>
+<div>
+<p class="text-sm font-bold">Sami T.</p>
+<p class="text-[10px] font-medium text-slate-500 uppercase">Logistics Lead</p>
+</div>
+<button class="ml-auto size-8 flex items-center justify-center rounded-lg text-primary hover:bg-white dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+</button>
+</div>
+<div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700">
+<img alt="" class="size-10 rounded-full" data-alt="Available employee portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS2RsxBxcJRUNEbYtUfD6-TZN3QmQn_ig0FOiAIJ0s3Wz51b2VkAYFKqiSAnjhXZBd93jLGJWaFBtXEl6epktIWhZQTVPOFrXLBYPVIn_YI0P1nxfdBsFe5UZwcbUMKFjAB4bTTp78js7g25S6AZxxyvINBmMC4BO1UUScI8mR8pAj6uyRG7hT19OUSUp-_FCxx3J0yGf2kPrgm8Bjk9lAq5FVAS7UNbg6XZh5FITwBfdMArWNUXMek9eiHF-MhKGzlYeL7tAT0yw"/>
+<div>
+<p class="text-sm font-bold">Mouna K.</p>
+<p class="text-[10px] font-medium text-slate-500 uppercase">Dispatch Ops</p>
+</div>
+<button class="ml-auto size-8 flex items-center justify-center rounded-lg text-primary hover:bg-white dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Employee Management | Khadmeni</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a3c7a",
+                        "accent": "#f97316",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121720",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-3 lg:px-10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary dark:text-slate-100">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">database</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-tight">Khadmeni</h2>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-primary border-b-2 border-primary pb-1" href="#">Employees</a>
+<a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">Tasks</a>
+<a class="text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">Performance</a>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary w-64" placeholder="Search employee..." type="text"/>
+</div>
+<button class="flex items-center gap-2 bg-accent hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-sm">
+<span class="material-symbols-outlined text-sm">person_add</span>
+<span class="truncate">Add Employee</span>
+</button>
+<div class="h-10 w-10 rounded-full border-2 border-slate-200 dark:border-slate-700 overflow-hidden bg-slate-200" data-alt="User profile avatar circle">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh2qEYFMvZZTNnugJSb6WmEwGGoCViT-Yw6yUFDB-SUNtsXC_F5TawBzWjnUhXhEsBr9rKjuhd_Jy4uGyviYp6jAxHy57I-8wlfQc2CTRv1zPdp6oYqzRZQ2Fq29dMi5EOb4OAeJoO0Q8XoY0c6Np4_pLIUtoE0afmnBNG14U1G4YdOg8zmrHph2RXpqyuzVMLU44q1AdDELB9-GwHR6IcIQkrU1-RGvILIcqz-6fnmQRSDLRNPh-43i38nK-_teYswYUGEcemOKQ"/>
+</div>
+</div>
+</header>
+<main class="flex-1 px-4 lg:px-10 py-8 max-w-7xl mx-auto w-full">
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Employee Directory</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Manage, monitor, and update your workforce across all departments.</p>
+</div>
+<div class="flex gap-2 flex-wrap">
+<div class="flex items-center gap-2 bg-white dark:bg-slate-900 p-1 rounded-lg border border-slate-200 dark:border-slate-800">
+<button class="px-4 py-1.5 text-xs font-semibold rounded bg-primary text-white">Grid</button>
+<button class="px-4 py-1.5 text-xs font-semibold rounded text-slate-500 hover:bg-slate-50">List</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+<div class="lg:col-span-1 flex flex-col gap-6">
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5">
+<h3 class="font-bold text-sm uppercase tracking-wider text-slate-400 mb-4">Filters</h3>
+<div class="space-y-4">
+<div>
+<label class="text-sm font-semibold mb-2 block">Role</label>
+<select class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:ring-primary">
+<option>All Roles</option>
+<option>Admin</option>
+<option>Developer</option>
+<option>Designer</option>
+<option>Project Manager</option>
+</select>
+</div>
+<div>
+<label class="text-sm font-semibold mb-2 block">Status</label>
+<div class="space-y-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="rounded text-primary focus:ring-primary border-slate-300" type="checkbox"/>
+<span class="text-sm group-hover:text-primary transition-colors">Active</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary border-slate-300" type="checkbox"/>
+<span class="text-sm group-hover:text-primary transition-colors">On Leave</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary border-slate-300" type="checkbox"/>
+<span class="text-sm group-hover:text-primary transition-colors">Offline</span>
+</label>
+</div>
+</div>
+<div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+<button class="w-full py-2 text-primary font-bold text-sm hover:bg-primary/5 rounded-lg transition-colors">
+                                    Clear all filters
+                                </button>
+</div>
+</div>
+</div>
+<div class="bg-primary rounded-xl p-5 text-white overflow-hidden relative shadow-lg shadow-primary/20">
+<div class="relative z-10">
+<h4 class="font-bold text-lg">Weekly Stats</h4>
+<p class="text-white/70 text-sm mb-4">Total tasks completed</p>
+<div class="text-3xl font-black mb-2">1,284</div>
+<div class="flex items-center gap-1 text-emerald-400 text-sm">
+<span class="material-symbols-outlined text-sm font-bold">trending_up</span>
+<span>12% increase</span>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">analytics</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-3">
+<div class="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Employee Name</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Role</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Assigned Tasks</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Last Active</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-primary overflow-hidden" data-alt="Portrait photo of Ahmed Ali">
+<img alt="Ahmed Ali" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJOSn1OwYSOuTYZHJ-OhWdsegNdnYshKo8vco6EpF5N4S37lh9rejr04WwZ9eXUvSJGxZjT25tX5AOLig3ph9rEqvA8df_rVhlelpCuUuwOn2_jV8tGkxQE-VrmqKFmdQDhZkS4MAE8SdUPejxX7DdZPOuXU6RAKG7uyfMQXDp_yraFGltBHMTzn2xj_vwUTINqdQ9BplkOqm-R1PZR36viInEQ2NJ_VmE-H3fqubHIZKQ9f8TfIeNsvQ4m40rFFJ3DBmzdK8ubgc"/>
+</div>
+<div>
+<div class="text-sm font-bold text-slate-900 dark:text-white">Ahmed Ali</div>
+<div class="text-xs text-slate-500">ahmed@khadmeni.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">Admin</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-24 bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+<div class="bg-accent h-full w-[85%] rounded-full"></div>
+</div>
+<span class="text-xs font-bold">85%</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<span class="size-2 rounded-full bg-emerald-500"></span>
+<span class="text-sm">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">2 mins ago</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-primary transition-colors" title="View Profile">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-accent transition-colors" title="Edit Employee">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+</button>
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-red-500 transition-colors" title="Delete">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-primary overflow-hidden" data-alt="Portrait photo of Sami Ben Salem">
+<img alt="Sami" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbyQuR8hIJN-sZPJUluqrznlVh0NSvyn44ojQfakdQXOv4XQT2louzTER5-wIbfHCPd5d4PDtGLOx5IC6sygZ9eTu0k6h8v6BaycCivxzWbYh23AfQX254MA_yusI1XetDgSMzfQr0ciB0q0g4oWsjaZJ7ragKSiPzYOyXxN3djnd1gL6xs7VBP6pidLwnN4mvOsT2i_ZLZuibL0_U8ojJ3e74xhkVI66vMS2FuedUpoIG7ycfvCjFlrtqY6yPSYuFlr5Gu-VNTfI"/>
+</div>
+<div>
+<div class="text-sm font-bold text-slate-900 dark:text-white">Sami Ben Salem</div>
+<div class="text-xs text-slate-500">+216 55 987 654</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">Developer</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-24 bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+<div class="bg-accent h-full w-[45%] rounded-full"></div>
+</div>
+<span class="text-xs font-bold">45%</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<span class="size-2 rounded-full bg-amber-500"></span>
+<span class="text-sm">Busy</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">1 hour ago</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">visibility</span></button>
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-accent transition-colors"><span class="material-symbols-outlined text-lg">edit_note</span></button>
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-red-500 transition-colors"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-primary overflow-hidden" data-alt="Portrait photo of Lina Mansour">
+<img alt="Lina" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnGYkOtxL0tyIlnKk8u76Z54q1Uh3GfE92uqvNvat8GPIU9Wt7fqT-UFilLNjDIY2wKiVS0Us64DFRfUajTOJRaB4awuCwY-uudVvSnbdZxaSyeZ0q79L2o79u6DiOA3-oNQsW_zpSsmTxdwZs5F5lThb0U80RyfeVUbouA14rMMN0xy_-P5xMdPlqqtv8-_W3gA2JTq4L8ezXnsooZVnMbsKObYXwXTHRX7yHcqv0dyic23ddl3U-rqkrWqIajklhxi01opz0CLc"/>
+</div>
+<div>
+<div class="text-sm font-bold text-slate-900 dark:text-white">Lina Mansour</div>
+<div class="text-xs text-slate-500">lina@khadmeni.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">Designer</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-24 bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+<div class="bg-accent h-full w-[100%] rounded-full"></div>
+</div>
+<span class="text-xs font-bold">100%</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<span class="size-2 rounded-full bg-slate-300"></span>
+<span class="text-sm">Offline</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Yesterday</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">visibility</span></button>
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-accent transition-colors"><span class="material-symbols-outlined text-lg">edit_note</span></button>
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-red-500 transition-colors"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-primary overflow-hidden" data-alt="Portrait photo of Omar Farouk">
+<img alt="Omar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk7pEJbywEO4hc9olHVbC9Mx8gMk5ECODGV2fONlSGVY8--OcGqksMGqfGB24BeUem3JKz3eeMPgPlCSJetJBe_5UWwJ4mfNWKlIlVBT4MzHp0he526WdIo_jY7_E-krqQ057TgHNFt5XJu8d8bjBqQ43gLgBnllB3iwmq8HLprrLPM453Ofyq1M9u0BsoBM2s6c_PGYIKtXN604jGHxXHXbpowqPO1DCyWJhfCU8M83QkytJEoREX0IrylJLOr73YpTigsM0SXxo"/>
+</div>
+<div>
+<div class="text-sm font-bold text-slate-900 dark:text-white">Omar Farouk</div>
+<div class="text-xs text-slate-500">omar@khadmeni.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">Project Manager</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-24 bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+<div class="bg-accent h-full w-[15%] rounded-full"></div>
+</div>
+<span class="text-xs font-bold">15%</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<span class="size-2 rounded-full bg-emerald-500"></span>
+<span class="text-sm">Active</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Just now</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">visibility</span></button>
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-accent transition-colors"><span class="material-symbols-outlined text-lg">edit_note</span></button>
+<button class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-red-500 transition-colors"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-slate-50 dark:bg-slate-800/30 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<p class="text-sm text-slate-500">Showing 1 to 4 of 24 employees</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50">Previous</button>
+<button class="px-3 py-1 text-sm bg-primary text-white border border-primary rounded-lg">Next</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 px-10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-2">
+<div class="size-6 bg-primary rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xs">database</span>
+</div>
+<span class="text-sm font-bold">Khadmeni</span>
+<span class="text-xs text-slate-400 ml-4">© 2024. All rights reserved.</span>
+</div>
+<div class="flex gap-6">
+<a class="text-xs text-slate-500 hover:text-primary" href="#">Terms</a>
+<a class="text-xs text-slate-500 hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-xs text-slate-500 hover:text-primary" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

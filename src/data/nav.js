@@ -1,0 +1,30 @@
+export const adminNavItems = [
+  { to: "/admin", label: "Dashboard", icon: "grid", end: true },
+  { to: "/admin/roles", label: "Roles", icon: "shield" },
+  { to: "/admin/providers", label: "Providers", icon: "search" },
+  { to: "/admin/orders", label: "Orders", icon: "cart" },
+  { to: "/admin/services", label: "Services", icon: "clipboard" },
+  { to: "/admin/complaints", label: "Complaints", icon: "warning" },
+  { to: "/admin/subscriptions", label: "Subscriptions", icon: "wallet" },
+  { to: "/admin/rewards", label: "Rewards", icon: "star" },
+  { to: "/admin/advertisements", label: "Ads", icon: "target" },
+  { to: "/admin/companies", label: "Companies", icon: "building" },
+  { to: "/admin/users", label: "Users", icon: "users" },
+  { to: "/admin/settings", label: "Settings", icon: "gear" },
+  { to: "/admin/login", label: "Login", icon: "logout" },
+  { to: "/company", label: "Company portal", icon: "bars" },
+];
+
+export const companyNavItems = [
+  { to: "/company", label: "Dashboard", icon: "grid", end: true },
+  { to: "/company/employees", label: "Employees", icon: "users" },
+  { to: "/company/orders", label: "Orders", icon: "cart" },
+  { to: "/company/available", label: "Available talent", icon: "search" },
+  { to: "/company/logs", label: "Distribution logs", icon: "clipboard" },
+  { to: "/company/employees/assign-task", label: "Assign task", icon: "checkshield" },
+  { to: "/company/employees/statistics", label: "Statistics", icon: "bars" },
+  { to: "/company/employees/profile", label: "Profile", icon: "building" },
+  { to: "/company/employees/add", label: "Add employee", icon: "users" },
+  { to: "/company/login", label: "Login", icon: "logout" },
+  { to: "/admin", label: "Admin portal", icon: "shield" },
+];

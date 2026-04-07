@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Provider Management - Khadmeni Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#1a3c7a",
+                "accent": "#FF8C42",
+                "background-light": "#f6f7f8",
+                "background-dark": "#121720",
+              },
+              fontFamily: {
+                "display": ["Inter", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-primary/10 flex flex-col fixed h-full">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">work</span>
+</div>
+<div>
+<h1 class="text-primary font-bold text-lg leading-tight">Khadmeni</h1>
+<p class="text-slate-500 text-xs font-medium">Admin Dashboard</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 bg-primary/10 text-primary rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">group</span>
+<span class="text-sm font-semibold">Provider Management</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-sm font-medium">User Management</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">handyman</span>
+<span class="text-sm font-medium">Services</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-sm font-medium">Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm font-medium">Transactions</span>
+</a>
+</nav>
+<div class="p-4 border-t border-primary/10">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-red-500 hover:bg-red-50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 flex flex-col">
+<!-- Top Header -->
+<header class="h-16 bg-white dark:bg-slate-900 border-b border-primary/10 flex items-center justify-between px-8 sticky top-0 z-10">
+<div class="flex items-center gap-4 flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-background-light dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-sm" placeholder="Global search..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-background-light dark:hover:bg-slate-800 text-slate-600 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-700 mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-semibold leading-tight">Admin User</p>
+<p class="text-xs text-slate-500">Super Admin</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Admin profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv5WZYrrD94hEGh855A2OdTvB5aFPXKT_8AKMBqukCZAS0j99I8WxTpJneT8p_6W29nxJrJC7Rs7F71-tifhTJ_8i4o8ePH28AlalNsnBJp4TFkSloycab2-X7SCtFaB0TDQh2kvEdMGxDJvdhHE9toZkP5uKDJiX2dHbbXSZIbDbfP0-NJfSHPOrbsJo4THW4oh56htUJH0eQmxqwii491PS8IsL0K0sU8GzKB1mQ30xKwZmRlhouoqkXldJvG7CWmd68DyjNZSw"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8">
+<!-- Title and Actions -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<h2 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Provider Management</h2>
+<p class="text-slate-500 mt-1">Manage and monitor all service providers on the platform.</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg font-bold text-sm flex items-center gap-2 shadow-lg shadow-primary/20 transition-all">
+<span class="material-symbols-outlined">add</span>
+                        Add New Provider
+                    </button>
+</div>
+<!-- Stats Summary Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<span class="text-xs font-bold text-green-600 bg-green-100 px-2 py-1 rounded-full">+12%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Total Providers</p>
+<h3 class="text-2xl font-black mt-1">1,284</h3>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-green-100 rounded-lg text-green-600">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<span class="text-xs font-bold text-green-600 bg-green-100 px-2 py-1 rounded-full">+5%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Active</p>
+<h3 class="text-2xl font-black mt-1">1,150</h3>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-yellow-100 rounded-lg text-yellow-600">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+<span class="text-xs font-bold text-red-500 bg-red-50 px-2 py-1 rounded-full">-2%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Pending Review</p>
+<h3 class="text-2xl font-black mt-1">85</h3>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-primary/5 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-red-100 rounded-lg text-red-600">
+<span class="material-symbols-outlined">block</span>
+</div>
+<span class="text-xs font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Static</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Banned</p>
+<h3 class="text-2xl font-black mt-1">49</h3>
+</div>
+</div>
+<!-- Filters Row -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/5 shadow-sm mb-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+<div class="lg:col-span-2 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-background-light dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-sm" placeholder="Search by name, email or phone..." type="text"/>
+</div>
+<select class="bg-background-light dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20">
+<option value="">Status: All</option>
+<option value="active">Active</option>
+<option value="pending">Pending</option>
+<option value="banned">Banned</option>
+</select>
+<select class="bg-background-light dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20">
+<option value="">Rating: All</option>
+<option value="4">4+ Stars</option>
+<option value="3">3+ Stars</option>
+</select>
+<select class="bg-background-light dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20">
+<option value="">Subscription: All</option>
+<option value="premium">Premium</option>
+<option value="basic">Basic</option>
+</select>
+</div>
+</div>
+<!-- Providers Table -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-primary/5 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-background-light dark:bg-slate-800/50 border-b border-primary/5">
+<tr>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Provider Name</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Contact Details</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Rating</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Subscription</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Points</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<!-- Row 1 -->
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover" data-alt="Provider portrait photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSXFca7I4vsPcPY5wFTJQoGS3uCkJGthvimxeAAsSQ75oZztnhvvIxBWSFrCeVFmmqL3FPg2DyM8qD2mpNN-V5nc79aj-3OPwa80JDy6iv_N1OuNeTeFhR1iYS_V75O8VWj9niEYIYZ9DejITiiYZ-p228urPmH1PIQR6Y6D3tOvfiPGyJLBjCuiavUCUWvFOUdceD740W43hg6BqbFC6LodyM3jprup8MPIJSV34oMHQ20cJAC6vp0paXjtg9mgT2dk0CX_IyJHk"/>
+</div>
+<div class="text-sm font-semibold">Alex Thompson</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm">alex.t@example.com</div>
+<div class="text-xs text-slate-500">+216 55 123 456</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1 text-accent">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-sm font-bold text-slate-900">4.9</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-primary/10 text-primary uppercase">Premium</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm font-bold">1,250 pts</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 text-green-600 flex items-center w-fit gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>
+                                            Active
+                                        </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors" title="View Profile">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 hover:bg-primary/10 text-slate-600 rounded-lg transition-colors" title="Edit">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 hover:bg-red-50 text-red-500 rounded-lg transition-colors" title="Ban">
+<span class="material-symbols-outlined text-xl">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover" data-alt="Female provider avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR41M7_MaAONyOQKfgqarOXMlrsVqzG4PegM3kIQZsMhohXCxITjWTQCB_3rlzrwJ5iyusMgc7J0aaES5iEGimMrrK2js4N6e1CrCYvd-h1ADhakc5eUZloxLhCGku4AiPSa66vkz-7O7axqfJP4RDu2pRTcsA5sOEtOwThpAFLX8A1jE4XgwxDubpWT1cDeifnSLX-5m8ybRkNgzNk2Q18BQDYy2M2GCoSHs9ewtj-e5dSy31GEHfh5FJYgIrxfZoTW1qCWvnwKk"/>
+</div>
+<div class="text-sm font-semibold">Sarah Jenkins</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm">s.jenkins@webmail.com</div>
+<div class="text-xs text-slate-500">+216 22 987 654</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1 text-accent">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-sm font-bold text-slate-900">4.7</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 uppercase">Basic</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm font-bold">420 pts</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-yellow-100 text-yellow-600 flex items-center w-fit gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-yellow-600"></span>
+                                            Pending
+                                        </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 hover:bg-primary/10 text-slate-600 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 hover:bg-red-50 text-red-500 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover" data-alt="Male provider avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC24eMZC20PjFJrKiZg4u40PI-CG8fcToqo7k4qJomhMSn2FJZ3ugZIEcBARRpcII2vNmfJsfSstlwkbSmt3EcD3sukK3plJUy5Lmean4EFv_pecYdwHSNVOoYtnH48WdUnbkFGpwcZ1ccBJ9X9EHm77RQEYjoyvUHNcV2kdMBhNZ07JC4BgafDx2ICeZ8kaE06hfMOiAQvMydflqbCLZavl-iDKX5lSooXKLhw-_GfngVmbAhM5CVNTsuABUuAa-3kWN-23nimhc4"/>
+</div>
+<div class="text-sm font-semibold">Marcello Rossi</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm">rossi.m@domain.it</div>
+<div class="text-xs text-slate-500">+216 98 444 333</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1 text-accent">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-sm font-bold text-slate-900">3.2</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 uppercase">Basic</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm font-bold">12 pts</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-red-100 text-red-600 flex items-center w-fit gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-red-600"></span>
+                                            Banned
+                                        </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 hover:bg-primary/10 text-slate-600 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 bg-red-50 text-red-600 rounded-lg" disabled="">
+<span class="material-symbols-outlined text-xl">lock_open</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover" data-alt="Professional man avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiwBEMfNmX3u3l-HnaYS8ATJPPv9wECigvlmRflFx8TMPMNyq5NH_ig80p_5XtawJE8w1eBbUGyDbjzwqG6Gh5yooqyLiOROKCL4J8LNZq2EjVzNUqWZLQMVHl2V4SMT-h3mpDqjEDT_UgILW-7z8KthTDmmZ_jVoj9Q3JzOMasg0Gwwn4a1gzsU4iFDi9ezMHX_2Cfs-Qaip1sdQQF3KipUwN4ViKScGlLXaIa40YsttQhuRl-JPD9no7wtDk7dGPTDkzDGs-kgo"/>
+</div>
+<div class="text-sm font-semibold">David Wilson</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm">david.w@service.pro</div>
+<div class="text-xs text-slate-500">+216 25 333 777</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1 text-accent">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-sm font-bold text-slate-900">5.0</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-primary/10 text-primary uppercase">Premium</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="text-sm font-bold">2,890 pts</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 text-green-600 flex items-center w-fit gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>
+                                            Active
+                                        </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-2 hover:bg-primary/10 text-slate-600 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 hover:bg-red-50 text-red-500 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">block</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 flex items-center justify-between border-t border-primary/5">
+<p class="text-sm text-slate-500">
+                            Showing <span class="font-bold text-slate-900">1</span> to <span class="font-bold text-slate-900">10</span> of <span class="font-bold text-slate-900">1,284</span> providers
+                        </p>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg border border-slate-200 text-slate-400 cursor-not-allowed">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-primary text-white font-bold text-sm">1</button>
+<button class="w-10 h-10 rounded-lg hover:bg-background-light text-slate-600 font-bold text-sm">2</button>
+<button class="w-10 h-10 rounded-lg hover:bg-background-light text-slate-600 font-bold text-sm">3</button>
+<span class="text-slate-400 px-1">...</span>
+<button class="w-10 h-10 rounded-lg hover:bg-background-light text-slate-600 font-bold text-sm">129</button>
+<button class="p-2 rounded-lg border border-slate-200 text-slate-600 hover:bg-background-light transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#1a3c7a",
+                "accent": "#f97316",
+                "background-light": "#f6f7f8",
+                "background-dark": "#121720",
+              },
+              fontFamily: {
+                "display": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<title>Khadmeni - Corporate Login</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header/Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 md:px-10 py-4 bg-white dark:bg-slate-900">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight">Khadmeni</h2>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-sm text-slate-500 hidden md:block">New to Khadmeni?</span>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold transition-all hover:bg-primary/90">
+                        Sign Up
+                    </button>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center p-4 md:p-8">
+<div class="w-full max-w-[1000px] grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+<!-- Left Column: Login Form -->
+<div class="bg-white dark:bg-slate-900 p-8 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-2">Welcome Back</h1>
+<p class="text-slate-500 dark:text-slate-400">Log in to your corporate dashboard to manage your workforce.</p>
+</div>
+<form class="space-y-5">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Email Address</label>
+<input class="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-4 text-base focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="e.g. admin@company.com" required="" type="email"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Password</label>
+<a class="text-sm font-medium text-accent hover:underline" href="#">Forgot password?</a>
+</div>
+<div class="relative">
+<input class="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-4 pr-12 text-base focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="Enter your password" required="" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-2 py-2">
+<input class="rounded border-slate-300 text-primary focus:ring-primary" id="remember" type="checkbox"/>
+<label class="text-sm text-slate-600 dark:text-slate-400" for="remember">Remember this device for 30 days</label>
+</div>
+<button class="w-full bg-primary text-white font-bold py-4 rounded-lg hover:bg-primary/95 transition-colors shadow-lg shadow-primary/10" type="submit">
+                                Sign In to Dashboard
+                            </button>
+</form>
+<div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-center gap-4 text-sm text-slate-500">
+<span>Or continue with</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-4">
+<button class="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 rounded-lg py-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-medium">
+<span class="material-symbols-outlined text-[20px]">google</span>
+                                    Google
+                                </button>
+<button class="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 rounded-lg py-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all font-medium">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+                                    SSO
+                                </button>
+</div>
+</div>
+</div>
+<!-- Right Column: Security & Device Management -->
+<div class="space-y-6">
+<!-- Hero Visual Card -->
+<div class="relative overflow-hidden rounded-xl bg-primary aspect-video flex flex-col justify-end p-8 text-white">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute inset-0 opacity-20" data-alt="Modern corporate office interior with team working" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBDLXC5ZyXLNOa6hVnEVEYLKbhisDukfM0idCDaKJ9W-lIx5fgzN0gbDGozzsc3JWhA1X1yUXM4-tInrHYrp2f1zr01eCRe1MxUrLco_MbHE2iyG9KDB-959bFD5e_wdo5NXBRaqOtFl3w5_XybX4QMSyyDH-8drvt8PtI-9boJVyEJlw-X1WukSxpI6MhgXUNofVLen7p4AYzz66YeeDOOCku5k0EeWUkoIv25iMtg0WawtX3HZoGcO6YeUHBMVsZw6MFM0fe5klY'); background-size: cover; background-position: center;"></div>
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 bg-accent px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-3">
+                                    Enterprise Security
+                                </div>
+<h3 class="text-2xl font-bold mb-2">Secure Workplace Access</h3>
+<p class="text-white/80 text-sm max-w-sm">Manage your account security and active sessions from a centralized dashboard.</p>
+</div>
+</div>
+<!-- Device Management Panel -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">security</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-slate-100">Security Options</h4>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">devices</span>
+<div>
+<p class="text-sm font-semibold">Current Sessions</p>
+<p class="text-xs text-slate-500">2 active devices found</p>
+</div>
+</div>
+<button class="text-xs font-bold text-primary hover:underline">Manage</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent">logout</span>
+<div>
+<p class="text-sm font-semibold">Force Logout</p>
+<p class="text-xs text-slate-500">Sign out from all other devices</p>
+</div>
+</div>
+<button class="px-3 py-1.5 bg-accent/10 text-accent text-xs font-bold rounded-lg hover:bg-accent/20 transition-all">
+                                        Log Out All
+                                    </button>
+</div>
+<div class="p-4 border border-dashed border-slate-200 dark:border-slate-700 rounded-lg">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold uppercase text-slate-400">Last login attempt</span>
+<span class="text-[10px] text-green-500 font-bold bg-green-500/10 px-2 py-0.5 rounded-full">Success</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-slate-400">location_on</span>
+<p class="text-xs text-slate-600 dark:text-slate-400">Paris, France · Chrome on MacOS</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto p-10 border-t border-slate-200 dark:border-slate-800 text-center">
+<div class="flex flex-wrap justify-center gap-8 mb-4">
+<a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Security Audit</a>
+<a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+<p class="text-xs text-slate-400">© 2024 Khadmeni Corporation. All rights reserved. Secure SaaS Solutions.</p>
+</footer>
+</div>
+</div>
+</body></html>

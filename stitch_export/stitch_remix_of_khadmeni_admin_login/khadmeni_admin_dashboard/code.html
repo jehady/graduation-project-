@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Khadmeni Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a3c7a",
+                        "accent": "#FF8C42",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121720",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">handshake</span>
+</div>
+<div>
+<h1 class="text-primary dark:text-slate-100 text-lg font-bold leading-none">Khadmeni</h1>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider mt-1">Super Admin</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary text-white font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span>Providers</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span>Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">corporate_fare</span>
+<span>Companies</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">build</span>
+<span>Services</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">report_problem</span>
+<span>Complaints</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">credit_card</span>
+<span>Subscriptions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">card_giftcard</span>
+<span>Rewards</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span>Ads</span>
+</a>
+<div class="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>System Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/20 transition-colors mt-1" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col overflow-hidden">
+<!-- Header -->
+<header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 z-10">
+<div class="flex-1 max-w-md">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg pl-10 pr-4 py-2 focus:ring-2 focus:ring-primary/20 placeholder:text-slate-500 text-sm" placeholder="Search across marketplace..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-accent rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:border-slate-800"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-semibold text-slate-900 dark:text-slate-100 leading-none">Amine Benali</p>
+<p class="text-xs text-slate-500 mt-1">Platform Admin</p>
+</div>
+<div class="size-10 rounded-full bg-primary/10 border-2 border-primary/20 bg-cover bg-center" data-alt="Admin user profile headshot" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAtgtwZ76gqJ6dDm4WJWLsVpB81gwjlA1UqKJalhyfICj0lpy5aci8c0fn6HwBAQh_WEuqfR5PQL1NKrwwdbceVxYN8zvIQeoqOlKNp2OHbV1iKmKLcbGQ9uN6xsuL0Hw9LhExGXAh2zC5OdeN-FrhzBZGDI5_ktgc5HfltZT39JnN7xdDYndqXwdCXo-hu8bN66Rx7UuOiizqcxfOmuzXOT4_fZa07hhSCDXKtVVVqwdVSQEiBb-QA-iTHhrIW1DrxNZDFToiDXp4')"></div>
+</div>
+</div>
+</header>
+<!-- Content -->
+<main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark p-8">
+<div class="max-w-7xl mx-auto space-y-8">
+<!-- Welcome Section -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100">Marketplace Overview</h2>
+<p class="text-slate-500 mt-1">Detailed performance and activity tracking for Khadmeni services.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+<span>Last 30 Days</span>
+</button>
+<button class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Export Data</span>
+</button>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+</div>
+<span class="text-emerald-600 dark:text-emerald-400 text-xs font-bold bg-emerald-50 dark:bg-emerald-950/30 px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> 12.5%
+                            </span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Total Orders</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-1">12,840</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-accent/10 rounded-lg">
+<span class="material-symbols-outlined text-accent">engineering</span>
+</div>
+<span class="text-rose-600 dark:text-rose-400 text-xs font-bold bg-rose-50 dark:bg-rose-950/30 px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_down</span> 2.4%
+                            </span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Total Providers</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-1">2,450</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<span class="text-emerald-600 dark:text-emerald-400 text-xs font-bold bg-emerald-50 dark:bg-emerald-950/30 px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> 8.1%
+                            </span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Total Users</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-1">45,200</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-accent/10 rounded-lg">
+<span class="material-symbols-outlined text-accent">business</span>
+</div>
+<span class="text-emerald-600 dark:text-emerald-400 text-xs font-bold bg-emerald-50 dark:bg-emerald-950/30 px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> 5.3%
+                            </span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Total Companies</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-1">890</p>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Line Chart -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold text-slate-900 dark:text-slate-100">Platform Activity</h3>
+<select class="bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-xs font-semibold py-1 focus:ring-0">
+<option>Weekly</option>
+<option>Monthly</option>
+</select>
+</div>
+<div class="relative h-64 w-full">
+<svg class="h-full w-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 100">
+<defs>
+<lineargradient id="gradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#1a3c7a" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#1a3c7a" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,80 Q10,75 20,85 T40,60 T60,65 T80,40 T100,50 L100,100 L0,100 Z" fill="url(#gradient)"></path>
+<path d="M0,80 Q10,75 20,85 T40,60 T60,65 T80,40 T100,50" fill="none" stroke="#1a3c7a" stroke-width="2"></path>
+</svg>
+<div class="absolute bottom-0 left-0 right-0 flex justify-between text-[10px] text-slate-400 font-bold uppercase pt-4 px-2">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+</div>
+<!-- Bar Chart -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold text-slate-900 dark:text-slate-100">Orders Trend</h3>
+<select class="bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-xs font-semibold py-1 focus:ring-0">
+<option>Monthly</option>
+<option>Quarterly</option>
+</select>
+</div>
+<div class="h-64 flex items-end justify-between gap-4 px-2 pb-8">
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg relative" style="height: 40%">
+<div class="absolute inset-0 bg-accent/80 rounded-t-lg" style="height: 100%"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">W1</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg relative" style="height: 65%">
+<div class="absolute inset-0 bg-primary rounded-t-lg" style="height: 100%"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">W2</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg relative" style="height: 50%">
+<div class="absolute inset-0 bg-accent/80 rounded-t-lg" style="height: 100%"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">W3</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg relative" style="height: 90%">
+<div class="absolute inset-0 bg-primary rounded-t-lg" style="height: 100%"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">W4</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity Section -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+<h3 class="font-bold text-slate-900 dark:text-slate-100">Recent Activity</h3>
+<button class="text-primary text-sm font-semibold hover:underline">View All</button>
+</div>
+<div class="divide-y divide-slate-100 dark:divide-slate-800">
+<div class="p-6 flex items-center gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="size-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-semibold text-slate-900 dark:text-slate-100">New Provider Registration</p>
+<p class="text-xs text-slate-500">Ahmed Mansour registered as an Electrician provider in Tunis.</p>
+</div>
+<span class="text-xs text-slate-400">2 minutes ago</span>
+</div>
+<div class="p-6 flex items-center gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="size-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600">
+<span class="material-symbols-outlined">shopping_cart_checkout</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-semibold text-slate-900 dark:text-slate-100">New Order Completed</p>
+<p class="text-xs text-slate-500">Order #ORD-2849 was marked as completed by 'Elite Clean' company.</p>
+</div>
+<span class="text-xs text-slate-400">15 minutes ago</span>
+</div>
+<div class="p-6 flex items-center gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="size-10 rounded-full bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center text-rose-600">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-semibold text-slate-900 dark:text-slate-100">System Alert: Dispute Filed</p>
+<p class="text-xs text-slate-500">User Sara H. filed a complaint regarding Service ID #7721.</p>
+</div>
+<span class="text-xs text-slate-400">1 hour ago</span>
+</div>
+<div class="p-6 flex items-center gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="size-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-600">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-semibold text-slate-900 dark:text-slate-100">Subscription Renewed</p>
+<p class="text-xs text-slate-500">'FixIt Pro' company renewed their Premium Monthly plan.</p>
+</div>
+<span class="text-xs text-slate-400">3 hours ago</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

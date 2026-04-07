@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1a3c7a",
+              "background-light": "#f6f7f8",
+              "background-dark": "#121720",
+            },
+            fontFamily: {
+              "display": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<title>Khadmeni Admin Login</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex items-center justify-center p-4">
+<div class="w-full max-w-[480px]">
+<!-- Logo Section -->
+<div class="flex flex-col items-center mb-8">
+<div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-white text-4xl">work</span>
+</div>
+<h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100">Khadmeni</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Admin Administration Portal</p>
+</div>
+<!-- Login Card -->
+<div class="bg-white dark:bg-slate-800/50 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+<!-- Header Image/Banner -->
+<div class="h-32 bg-primary/10 relative overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 opacity-20" data-alt="Abstract blue geometric pattern background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjq7f1T_GshgDCdTfFPqf6mpBgzYYyuJxdZETuw9VdfRCspVl7cw41EXie_lTQE5PeCj_z0AWHQcMQLRxNn0UjX5sHcHh0a_SsNEPXOIPyiCBF7g-0hYRNAVX57dIlQEMD1fjM6ye34l_tIkhl-06EsH_c4zsgCjYtltjRnTsXZiRbcW3SflqqGhUKlbjVPa87Q_G2cN8ShUmzadFtV-lUz9mtNc3r3MwNf-dQch7csa_RQsQnScDvaTDt40pyLVxOVxLyu2_lp4I"); background-size: cover; background-position: center;'></div>
+<div class="relative z-10 flex items-center gap-2 bg-white/90 dark:bg-slate-900/90 px-4 py-2 rounded-full border border-primary/20">
+<span class="material-symbols-outlined text-primary text-sm">lock</span>
+<span class="text-primary font-semibold text-xs tracking-wider uppercase">Secure Login Session</span>
+</div>
+</div>
+<div class="p-8">
+<div class="mb-6">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100">Login to Admin Panel</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Enter your credentials to access the dashboard</p>
+</div>
+<form class="space-y-5">
+<!-- Email Field -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">mail</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="admin@khadmeni.com" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Password</label>
+<a class="text-primary text-xs font-semibold hover:underline" href="#">Forgot password?</a>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-slate-400">lock</span>
+<input class="w-full pl-10 pr-12 py-3 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="••••••••" type="password"/>
+<button class="absolute right-3 text-slate-400 hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center gap-2">
+<input class="rounded border-slate-300 text-primary focus:ring-primary" id="remember" type="checkbox"/>
+<label class="text-sm text-slate-600 dark:text-slate-400" for="remember">Keep me logged in</label>
+</div>
+<!-- Login Button -->
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-4 rounded-lg shadow-lg shadow-primary/30 transition-all flex items-center justify-center gap-2 group" type="submit">
+                        Sign In to Dashboard
+                        <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Security Message -->
+<div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-700 flex items-center justify-center gap-4">
+<div class="flex items-center gap-1.5 opacity-60">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="text-[10px] uppercase font-bold tracking-widest">SSL Encrypted</span>
+</div>
+<div class="flex items-center gap-1.5 opacity-60">
+<span class="material-symbols-outlined text-sm">shield</span>
+<span class="text-[10px] uppercase font-bold tracking-widest">Two-Factor Auth</span>
+</div>
+</div>
+</div>
+</div>
+<!-- External Links -->
+<div class="mt-8 flex justify-center gap-6 text-sm text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</body></html>

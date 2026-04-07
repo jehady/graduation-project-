@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed-variant": "#1d4ed8",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#e2e8f0",
+                        "on-secondary": "#ffffff",
+                        "primary": "#1a3c7a",
+                        "on-surface-variant": "#64748b",
+                        "on-tertiary-fixed": "#0f172a",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#0f172a",
+                        "primary-container": "#1e40af",
+                        "tertiary-fixed": "#f1f5f9",
+                        "surface-container-high": "#e5e8ee",
+                        "primary-fixed-dim": "#bfdbfe",
+                        "inverse-primary": "#bfdbfe",
+                        "tertiary-container": "#334155",
+                        "surface-dim": "#e2e4e9",
+                        "secondary-container": "#ffedd5",
+                        "on-secondary-container": "#7c2d12",
+                        "error": "#ef4444",
+                        "surface-variant": "#f1f5f9",
+                        "on-primary": "#ffffff",
+                        "surface": "#f6f7f8",
+                        "on-secondary-fixed": "#7c2d12",
+                        "outline-variant": "#e2e8f0",
+                        "error-container": "#fee2e2",
+                        "on-surface": "#0f172a",
+                        "primary-fixed": "#dbeafe",
+                        "outline": "#cbd5e1",
+                        "inverse-on-surface": "#f8fafc",
+                        "on-primary-container": "#dbeafe",
+                        "inverse-surface": "#1e293b",
+                        "surface-bright": "#ffffff",
+                        "on-secondary-fixed-variant": "#ea580c",
+                        "on-primary-fixed": "#1e3a8a",
+                        "on-background": "#0f172a",
+                        "surface-tint": "#1a3c7a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#fed7aa",
+                        "on-tertiary-fixed-variant": "#334155",
+                        "surface-container-low": "#f1f3f7",
+                        "on-error-container": "#7f1d1d",
+                        "surface-container": "#ebedf2",
+                        "secondary-fixed": "#ffedd5",
+                        "on-tertiary-container": "#f1f5f9",
+                        "surface-container-highest": "#dfe3ea",
+                        "background": "#f6f7f8",
+                        "secondary": "#f97316"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        .bento-item {
+            border-radius: 0.75rem;
+            background: #ffffff;
+        }
+        .orchestrator-gradient {
+            background: linear-gradient(15deg, #1a3c7a 0%, #254b8c 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Shell: SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-surface-bright flex flex-col z-50">
+<div class="p-8">
+<h1 class="text-2xl font-black tracking-tighter text-primary">Khadmeni</h1>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-semibold">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-semibold">Employees</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-semibold">Available Employees</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+<span class="font-semibold">Distribution Logs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">domain</span>
+<span class="font-semibold">Company Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-semibold">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary text-on-primary shadow-lg transition-colors" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-semibold">Statistics</span>
+</a>
+</nav>
+<div class="p-4 border-t border-outline-variant">
+<div class="flex items-center gap-3 p-2">
+<img alt="Khadmeni Logo" class="w-10 h-10 rounded-lg object-cover" data-alt="Corporate logo or office building" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Xv2GFG3-h-IfRK1pfEbAQYnkvkBE2jruaMs-BltTnFJsaXO-WEngdbYY7Z-8V_mmFMmOpdROqpMQn8T1n8cAyQxWIC8UeIUzMobKOCmr62q5tKEDn-fhMrlxX8Gh1gcGigvUmKAIldBfs5jDNyrsQhgtfxq7fxMFdjDaxUDODryXLJr2vzcrQ-qUncRcU_AcGccdGfnZMmFFseViFYvXvahHd8yWmqJqmM0m8uPmSjMJ0TQgZt409Je6USRRV4N8hoPBi0ZvscA"/>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Khadmeni</p>
+<p class="text-xs text-on-surface-variant truncate">Enterprise Portal</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="h-20 bg-surface-bright/80 backdrop-blur-xl sticky top-0 z-40 px-8 flex items-center justify-between border-b border-outline-variant/40">
+<div class="flex items-center gap-6 flex-1">
+<span class="text-xl font-bold text-on-surface">Company Portal</span>
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary transition-all" placeholder="Search analytics..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right">
+<p class="text-sm font-bold leading-tight">Alex Rivera</p>
+<p class="text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">Admin</p>
+</div>
+<img alt="User Profile" class="w-10 h-10 rounded-full border-2 border-surface-container-high object-cover shadow-sm" data-alt="Professional headshot of a male executive" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRO96qzcqH2sIbc5AYfGit0p7anoMnXl-7dMpCFb4hVrGE7QYqm9YlxBxg83-akzQraeJHEVLsKLKfoz1bkC6DU4nuskMaG8NjvMx3k50CdbqXhxX_xyRPqn0v5XB9__lc7Ehji1QNS24E9kHXRxbRE5Qf-iJtqDyXeV_gbLRaIbA7ZH9WlsWqVdtFJfVAx-jelSBH2aTeCpRP_LaBGNvYq5fO07OvRM0ACTLBPvr8b9J2TWMUi2uDywoCmLpZWfBU7RRn_D3vp5c"/>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<div class="p-8 space-y-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="text-4xl font-black text-on-surface tracking-tight">Statistics</h2>
+<p class="text-on-surface-variant mt-1 font-medium">Real-time performance metrics and operational efficiency overview.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-5 py-2.5 bg-surface-container-lowest text-on-surface text-sm font-bold rounded-xl flex items-center gap-2 shadow-sm border border-outline-variant/50 hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+                        Last 30 Days
+                    </button>
+<button class="px-5 py-2.5 bg-secondary text-on-secondary text-sm font-bold rounded-xl flex items-center gap-2 shadow-lg shadow-secondary/20 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-lg">download</span>
+                        Export Report
+                    </button>
+</div>
+</div>
+<!-- Top Statistic Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bento-item p-6 shadow-sm border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-primary-fixed rounded-lg text-on-primary-fixed">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<span class="text-xs font-black text-on-surface-variant tracking-widest uppercase">Total Orders</span>
+</div>
+<div class="mt-6">
+<h3 class="text-3xl font-black">1,482</h3>
+<p class="text-xs text-on-primary-fixed-variant font-bold mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                            +12.4% from last month
+                        </p>
+</div>
+</div>
+<div class="bento-item p-6 shadow-sm border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-secondary-container rounded-lg text-on-secondary-container">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<span class="text-xs font-black text-on-surface-variant tracking-widest uppercase">Completion</span>
+</div>
+<div class="mt-6">
+<h3 class="text-3xl font-black">94%</h3>
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-3">
+<div class="bg-secondary h-full rounded-full" style="width: 94%"></div>
+</div>
+</div>
+</div>
+<div class="bento-item p-6 shadow-sm border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-tertiary-fixed rounded-lg text-on-tertiary-fixed">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<span class="text-xs font-black text-on-surface-variant tracking-widest uppercase">Active Staff</span>
+</div>
+<div class="mt-6">
+<h3 class="text-3xl font-black">86</h3>
+<p class="text-xs text-on-surface-variant font-medium mt-1">9 employees currently on break</p>
+</div>
+</div>
+<div class="orchestrator-gradient bento-item p-6 shadow-xl text-on-primary flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-white/10 backdrop-blur-md rounded-lg">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<span class="text-xs font-black text-white/70 tracking-widest uppercase">Avg. Response</span>
+</div>
+<div class="mt-6">
+<h3 class="text-3xl font-black">1.5h</h3>
+<p class="text-xs text-white/80 font-bold mt-1">Excellent Performance</p>
+</div>
+</div>
+</div>
+<!-- Main Charts Grid -->
+<div class="stats-grid">
+<!-- Orders per Month Line Chart -->
+<div class="col-span-12 lg:col-span-8 bento-item p-8 shadow-sm border border-outline-variant/30">
+<div class="flex justify-between items-center mb-10">
+<h3 class="text-xl font-bold">Orders per Month</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-xs font-bold text-on-surface-variant">Completed</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="text-xs font-bold text-on-surface-variant">Requested</span>
+</div>
+</div>
+</div>
+<div class="relative h-64 w-full flex items-end justify-between gap-4">
+<!-- Simulated Line Chart with Bars for styling -->
+<div class="flex-1 flex flex-col justify-end group">
+<div class="w-full flex justify-center gap-1">
+<div class="bg-primary/20 w-3 rounded-t-sm h-32"></div>
+<div class="bg-primary w-3 rounded-t-sm h-48"></div>
+</div>
+<span class="text-[10px] font-bold text-center mt-4 text-on-surface-variant">JAN</span>
+</div>
+<div class="flex-1 flex flex-col justify-end group">
+<div class="w-full flex justify-center gap-1">
+<div class="bg-primary/20 w-3 rounded-t-sm h-40"></div>
+<div class="bg-primary w-3 rounded-t-sm h-52"></div>
+</div>
+<span class="text-[10px] font-bold text-center mt-4 text-on-surface-variant">FEB</span>
+</div>
+<div class="flex-1 flex flex-col justify-end group">
+<div class="w-full flex justify-center gap-1">
+<div class="bg-primary/20 w-3 rounded-t-sm h-36"></div>
+<div class="bg-primary w-3 rounded-t-sm h-60"></div>
+</div>
+<span class="text-[10px] font-bold text-center mt-4 text-on-surface-variant">MAR</span>
+</div>
+<div class="flex-1 flex flex-col justify-end group">
+<div class="w-full flex justify-center gap-1">
+<div class="bg-primary/20 w-3 rounded-t-sm h-44"></div>
+<div class="bg-primary w-3 rounded-t-sm h-56"></div>
+</div>
+<span class="text-[10px] font-bold text-center mt-4 text-on-surface-variant">APR</span>
+</div>
+<div class="flex-1 flex flex-col justify-end group">
+<div class="w-full flex justify-center gap-1">
+<div class="bg-primary/20 w-3 rounded-t-sm h-48"></div>
+<div class="bg-primary w-3 rounded-t-sm h-64"></div>
+</div>
+<span class="text-[10px] font-bold text-center mt-4 text-on-surface-variant text-primary">MAY</span>
+</div>
+<div class="flex-1 flex flex-col justify-end group">
+<div class="w-full flex justify-center gap-1">
+<div class="bg-primary/20 w-3 rounded-t-sm h-42"></div>
+<div class="bg-primary w-3 rounded-t-sm h-50"></div>
+</div>
+<span class="text-[10px] font-bold text-center mt-4 text-on-surface-variant">JUN</span>
+</div>
+</div>
+</div>
+<!-- Efficiency section: Completion Rate Radial Charts -->
+<div class="col-span-12 lg:col-span-4 bento-item p-8 shadow-sm border border-outline-variant/30 flex flex-col">
+<h3 class="text-xl font-bold mb-8">Efficiency by Dept.</h3>
+<div class="space-y-8 flex-1 flex flex-col justify-center">
+<div class="flex items-center gap-6">
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-primary" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="175.9" stroke-dashoffset="17.5" stroke-width="6"></circle>
+</svg>
+<span class="absolute text-xs font-black">90%</span>
+</div>
+<div>
+<p class="font-bold">Technicians</p>
+<p class="text-xs text-on-surface-variant font-medium">32 Active Projects</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-secondary" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="175.9" stroke-dashoffset="44" stroke-width="6"></circle>
+</svg>
+<span class="absolute text-xs font-black">75%</span>
+</div>
+<div>
+<p class="font-bold">Field Workers</p>
+<p class="text-xs text-on-surface-variant font-medium">18 Active Projects</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-tertiary" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="175.9" stroke-dashoffset="22" stroke-width="6"></circle>
+</svg>
+<span class="absolute text-xs font-black">88%</span>
+</div>
+<div>
+<p class="font-bold">Logistics</p>
+<p class="text-xs text-on-surface-variant font-medium">44 Active Projects</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Performance section: Employee Performance Bar Chart -->
+<div class="col-span-12 lg:col-span-6 bento-item p-8 shadow-sm border border-outline-variant/30">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-xl font-bold">Top Performers</h3>
+<button class="text-primary text-xs font-bold uppercase tracking-wider hover:underline">View All</button>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-sm font-bold">
+<span class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Male technician headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx72n21JdGRnquR_9Vel9odXxo5FLsrROAzWNoBbt7QVNpDeM7Y_rtnjGvd5kJkAPwne8-YOfmJOfQ4Q5OojDw2Xe_H1sM5RXHQaRYtAV0tZeAnzrFYrCXGUh5vnQ4rvN8KRcirJxOuoChL0dTSFNX8i2HIcU_SSb7LnSDF6uXEPMoYo2QfjbQpVyHuAKul82mHVl50ymxQ41_FcsO1J0eHFud5F5Q3q9CkgIili8wgvFHybQQoV5GYUgfck79gKnCfYdak5dcUtk"/>
+                                    Sami Ben Ali
+                                </span>
+<span>124 Tasks</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 92%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm font-bold">
+<span class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Female professional portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_qThzo6cTs4Lrz17ew6nF39HulOA1lNGd6uim-adFp8hvd8E_F7vtng6XjeI4xmkXHz4X3tmjKPYdh5OAd0DQxg2XHiPmKVicfiq_ffL1TPbjTd0HxQ-SlC78KlHbGZPNrzSL_BJbmbtmJoDSrVHmqN1Qi74FGWEBGiIVXtpDHIEIEOsAnU7KpQE4X_wXe_A6KDWf71sMEek4ZfBD60vllrpwJNcUpl9YduuZa9GFj5Qj9Vfgo2zpg_PftyhGgUZSZXkc3eA0mDY"/>
+                                    Leila Mansour
+                                </span>
+<span>118 Tasks</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 86%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm font-bold">
+<span class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="Male freelancer portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwODQEgNn-vPtxzpZhkF4p-5R2SPcD2rQE2hmy1sPmdnZ7okibLEDoc8ThRRFcNmMM7qQ7hn2nwp_PUpFqlSuaod1CYWItLBatHVymvkD6cXHdhotEdllMGeglknQkwdBoITmX9Vs8B3on2jI5dNL_N9gvewvrGv-usumFlS_FqpcNWQjnEBG6A5l1Qq0P23khR8t8-QCS14vvy9Tm0kXxz_FdXe4wh6oPfAfnhwN9efRig9tpnSPnELq6rWgEDGYlZr4xZc6LLeo"/>
+                                    Karim Dridi
+                                </span>
+<span>98 Tasks</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 74%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Response Time Analysis: Table/List -->
+<div class="col-span-12 lg:col-span-6 bento-item p-8 shadow-sm border border-outline-variant/30">
+<h3 class="text-xl font-bold mb-8">Avg. Response by Role</h3>
+<div class="overflow-hidden border-t border-outline-variant/30">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/30">
+<th class="py-3 px-4 text-[10px] font-black tracking-widest text-on-surface-variant uppercase">Role</th>
+<th class="py-3 px-4 text-[10px] font-black tracking-widest text-on-surface-variant uppercase text-right">Avg. Time</th>
+<th class="py-3 px-4 text-[10px] font-black tracking-widest text-on-surface-variant uppercase text-right">Trend</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-4 font-bold text-sm">Senior Technician</td>
+<td class="py-4 px-4 text-sm font-medium text-right">45 mins</td>
+<td class="py-4 px-4 text-right text-error font-bold text-xs flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                                        +5m
+                                    </td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-4 font-bold text-sm">Customer Service</td>
+<td class="py-4 px-4 text-sm font-medium text-right">12 mins</td>
+<td class="py-4 px-4 text-right text-on-primary-fixed-variant font-bold text-xs flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+                                        -3m
+                                    </td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-4 font-bold text-sm">Logistics Manager</td>
+<td class="py-4 px-4 text-sm font-medium text-right">1.2 hours</td>
+<td class="py-4 px-4 text-right text-on-primary-fixed-variant font-bold text-xs flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+                                        -12m
+                                    </td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-4 font-bold text-sm">Maintenance Specialist</td>
+<td class="py-4 px-4 text-sm font-medium text-right">2.5 hours</td>
+<td class="py-4 px-4 text-right text-on-surface-variant font-bold text-xs flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-sm">horizontal_rule</span>
+                                        stable
+                                    </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Bottom Data Callout -->
+<div class="orchestrator-gradient p-1 bg-primary rounded-xl overflow-hidden">
+<div class="bg-surface-bright p-8 rounded-[11px] flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 bg-secondary-container rounded-2xl flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<div>
+<h4 class="text-xl font-bold">Operational Insight</h4>
+<p class="text-on-surface-variant max-w-md">Predictive modeling suggests a 15% increase in maintenance requests for the coming week. Consider mobilizing extra Technicians.</p>
+</div>
+</div>
+<button class="w-full md:w-auto px-8 py-3 bg-primary text-on-primary font-bold rounded-xl shadow-lg hover:shadow-primary/20 transition-all">
+                        Take Action
+                    </button>
+</div>
+</div>
+</div>
+<footer class="mt-auto p-8 text-center border-t border-outline-variant/30">
+<p class="text-xs font-bold text-on-surface-variant tracking-widest uppercase">© 2023 Khadmeni Editorial System • Performance Orchestrator v4.2</p>
+</footer>
+</main>
+</body></html>

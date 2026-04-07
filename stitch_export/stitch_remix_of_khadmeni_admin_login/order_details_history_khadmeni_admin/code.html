@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Khadmeni Admin - Order Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a3c7a",
+                        "secondary": "#FF8C42",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121720",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header Section -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 lg:px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">database</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-extrabold leading-tight tracking-tight">Khadmeni</h2>
+</div>
+<label class="hidden md:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-400 flex border-none bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-0 border-none bg-slate-100 dark:bg-slate-800 h-full placeholder:text-slate-400 px-4 pl-2 text-sm font-normal" placeholder="Search orders, users..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-700 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold text-slate-900 dark:text-slate-100">Sami Admin</p>
+<p class="text-[10px] text-slate-500">Super Admin</p>
+</div>
+<div class="bg-primary/10 border border-primary/20 rounded-full size-10 flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Admin user avatar smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1s5xje4D4sotlTaZgyX0YGEvsItMlpeXYjfr3zQeAGIGFR-iAdR5wERcoshnJA0Rq4ONtAOKX3QrFb9FdC8NZ7FvWt1M6sGhAjLskJ6fXBp-pk3zOLSjLbyo2WWW8-sXxl5GHruU796fvCWQyC_KtMMRLfrvxEdP71DCUiqR-bbTqrQ_4aax0xNEI1LH5DUXCvjTk02pSUfY8CUBMLkftDAIHoJn8UqdSVB6GbP3xsSBRK8PusModY_OCz2GWxPuLmTMwO3T1j_4"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col lg:px-10 py-6 max-w-[1440px] mx-auto w-full">
+<!-- Breadcrumbs & Title Bar -->
+<div class="px-4 mb-6">
+<nav class="flex items-center gap-2 text-slate-500 text-sm mb-4">
+<a class="hover:text-primary transition-colors" href="#">Dashboard</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Orders</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-semibold">Order Details</span>
+</nav>
+<div class="flex flex-wrap justify-between items-end gap-4">
+<div>
+<h1 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Order Details - #ORD-9921</h1>
+<p class="text-slate-500 mt-1">Order placed on Tuesday, Oct 24, 2023 at 09:00 AM</p>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-300 font-bold text-sm bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[20px]">print</span>
+                                Print Receipt
+                            </button>
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-300 font-bold text-sm bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+                                Message Support
+                            </button>
+<div class="relative group">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg font-bold text-sm hover:bg-primary/90 transition-colors">
+                                    Force Update Status
+                                    <span class="material-symbols-outlined text-[20px]">expand_more</span>
+</button>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-rose-600 text-white rounded-lg font-bold text-sm hover:bg-rose-700 transition-colors">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+                                Cancel Order
+                            </button>
+</div>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-6 px-4">
+<!-- Left Column -->
+<div class="flex-1 space-y-6">
+<!-- Order Summary Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="space-y-1">
+<p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Service Type</p>
+<div class="flex items-center gap-2 text-slate-900 dark:text-white font-bold">
+<span class="material-symbols-outlined text-primary">plumbing</span>
+                                    Plumbing
+                                </div>
+</div>
+<div class="space-y-1">
+<p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Status</p>
+<div>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mr-1.5 animate-pulse"></span>
+                                        In Progress
+                                    </span>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Total Amount</p>
+<p class="text-slate-900 dark:text-white font-black text-lg">$85.00</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Order Date</p>
+<p class="text-slate-900 dark:text-white font-bold">Oct 24, 2023</p>
+</div>
+</div>
+<!-- Service Parties -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Customer Card -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">person</span>
+                                        Customer
+                                    </h3>
+<span class="text-xs font-medium text-primary hover:underline cursor-pointer">View Profile</span>
+</div>
+<div class="flex gap-4">
+<div class="size-14 rounded-full bg-slate-100 dark:bg-slate-800 flex-shrink-0">
+<img alt="Customer" class="rounded-full" data-alt="Customer avatar profile image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCJu4daCVKWOIMwoOS8SIqEghuar7BxSBLlh55eqSCKkpO6PlAbGOYKfCfSUfShkAp_a1gWJpMR5aUayP796swn3CXb3WeH3FA5lU81-4zPVKXoWpcAzgy5g-qVc_SXTTjT-G1WyIpMhYYtLTupSrO1YcrqgWBSJgUQykAh2V_nV0j3NfMwSLpYHed2A_2fAIxJ1MsqsPdt2CykHTTNbTxKyew72azIvQvodnhaTadSweIPnyP5F19qbIVCDBqvUU1w2td_OFeB2E"/>
+</div>
+<div class="space-y-1">
+<p class="font-bold text-slate-900 dark:text-white">Amira Ben Salem</p>
+<p class="text-sm text-slate-500">+216 22 345 678</p>
+<p class="text-sm text-slate-500 italic">Rue de la Liberté, Tunis</p>
+<div class="flex items-center gap-1 pt-1">
+<span class="material-symbols-outlined text-amber-400 text-[16px] fill-amber-400">star</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">4.9</span>
+<span class="text-[10px] text-slate-400">(12 orders)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Provider Card -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">engineering</span>
+                                        Provider
+                                    </h3>
+<span class="text-xs font-medium text-primary hover:underline cursor-pointer">View Service Stats</span>
+</div>
+<div class="flex gap-4">
+<div class="size-14 rounded-full bg-slate-100 dark:bg-slate-800 flex-shrink-0">
+<img alt="Provider" class="rounded-full" data-alt="Provider professional avatar profile image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHvLrDHOAOZPT0702vEW_qseTH8phV_f067qh0LaUrldN6Ftk66WTEGZvJOEPhHwJQxWenqwFHoIX7b453RNxVfU0JJCwE659kMZ61HgQZRxzQTUl68uAwVV27GqX3bdV4khDIY3PiuhJeLi3l7QU3zuHgr7OiOsd5I3t1oSYKAlicOyayUjm3V5pv4Vl0irVQq-S8nZ8rgWUokF2L1lXKLMrNUpi3Vx1XrmP0Q_1pQlc8C0svVt2_-N8Un26qgIMhNToq9SxUve8"/>
+</div>
+<div class="space-y-1">
+<p class="font-bold text-slate-900 dark:text-white">Ahmed Dridi</p>
+<p class="text-xs px-2 py-0.5 bg-slate-100 dark:bg-slate-800 rounded inline-block text-slate-600 dark:text-slate-400 font-medium">Dridi Plumbing Solutions</p>
+<div class="flex items-center gap-3 mt-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-amber-400 text-[16px] fill-amber-400">star</span>
+<span class="text-xs font-bold text-slate-700 dark:text-slate-300">4.8</span>
+</div>
+<button class="flex items-center gap-1 text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]">call</span>
+                                                Contact
+                                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Service Details -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800">
+<h3 class="font-bold text-slate-900 dark:text-white">Service Details &amp; Tasks</h3>
+</div>
+<div class="p-0">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 text-xs uppercase tracking-wider">
+<tr>
+<th class="px-6 py-3 font-semibold">Task Description</th>
+<th class="px-6 py-3 font-semibold">Quantity</th>
+<th class="px-6 py-3 font-semibold text-right">Price</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800 text-sm">
+<tr>
+<td class="px-6 py-4">
+<p class="font-bold text-slate-900 dark:text-white">Emergency Leak Repair</p>
+<p class="text-xs text-slate-500">Fixing main kitchen pipe burst and water damage inspection</p>
+</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">1 Unit</td>
+<td class="px-6 py-4 text-right font-bold text-slate-900 dark:text-white">$65.00</td>
+</tr>
+<tr>
+<td class="px-6 py-4">
+<p class="font-bold text-slate-900 dark:text-white">Material Fee (Sealing Kit)</p>
+<p class="text-xs text-slate-500">Industrial grade rubber seals and high-pressure adhesive</p>
+</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">2 Kits</td>
+<td class="px-6 py-4 text-right font-bold text-slate-900 dark:text-white">$15.00</td>
+</tr>
+<tr>
+<td class="px-6 py-4">
+<p class="font-bold text-slate-900 dark:text-white">Service Fee</p>
+</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-400">Fixed</td>
+<td class="px-6 py-4 text-right font-bold text-slate-900 dark:text-white">$5.00</td>
+</tr>
+</tbody>
+<tfoot class="bg-slate-50/50 dark:bg-slate-800/20">
+<tr>
+<td class="px-6 py-4 text-right font-bold text-slate-500" colspan="2">Total Charged</td>
+<td class="px-6 py-4 text-right font-black text-primary text-lg">$85.00</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<!-- Live Order Timeline -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
+<h3 class="font-bold text-slate-900 dark:text-white mb-8">Live Order Timeline</h3>
+<div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary before:via-primary before:to-slate-200 dark:before:to-slate-700">
+<!-- Step 1: Completed -->
+<div class="relative flex items-center justify-between gap-6 group">
+<div class="flex items-center gap-6">
+<div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white ring-4 ring-white dark:ring-slate-900 shrink-0 shadow-lg">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Order Placed</p>
+<p class="text-xs text-slate-500">Oct 24, 09:00 AM</p>
+</div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded">Completed</span>
+</div>
+<!-- Step 2: Completed -->
+<div class="relative flex items-center justify-between gap-6 group">
+<div class="flex items-center gap-6">
+<div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white ring-4 ring-white dark:ring-slate-900 shrink-0 shadow-lg">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Payment Confirmed</p>
+<p class="text-xs text-slate-500">Oct 24, 09:05 AM</p>
+</div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded">Completed</span>
+</div>
+<!-- Step 3: Completed -->
+<div class="relative flex items-center justify-between gap-6 group">
+<div class="flex items-center gap-6">
+<div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white ring-4 ring-white dark:ring-slate-900 shrink-0 shadow-lg">
+<span class="material-symbols-outlined text-[20px]">assignment_ind</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Provider Assigned</p>
+<p class="text-xs text-slate-500">Oct 24, 09:15 AM</p>
+</div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded">Completed</span>
+</div>
+<!-- Step 4: Completed -->
+<div class="relative flex items-center justify-between gap-6 group">
+<div class="flex items-center gap-6">
+<div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white ring-4 ring-white dark:ring-slate-900 shrink-0 shadow-lg">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Provider Arrived</p>
+<p class="text-xs text-slate-500">Oct 24, 10:30 AM</p>
+</div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded">Completed</span>
+</div>
+<!-- Step 5: Current -->
+<div class="relative flex items-center justify-between gap-6 group">
+<div class="flex items-center gap-6">
+<div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 ring-4 ring-white dark:ring-slate-900 shrink-0">
+<span class="material-symbols-outlined text-[20px] animate-pulse">construction</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Work In Progress</p>
+<p class="text-xs text-slate-400 italic">Started Oct 24, 10:35 AM</p>
+</div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded ring-1 ring-blue-500/20">Current</span>
+</div>
+<!-- Step 6: Pending -->
+<div class="relative flex items-center justify-between gap-6 group">
+<div class="flex items-center gap-6 opacity-40">
+<div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 ring-4 ring-white dark:ring-slate-900 shrink-0">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Completion &amp; Review</p>
+<p class="text-xs text-slate-500">Awaiting provider completion signal</p>
+</div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Pending</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar -->
+<aside class="w-full lg:w-80 space-y-6">
+<!-- Modification Log (Audit Trail) -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
+<div class="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<h3 class="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400 text-[18px]">history</span>
+                                    Modification Log
+                                </h3>
+<button class="text-primary text-[10px] font-bold uppercase tracking-widest">Full History</button>
+</div>
+<div class="p-4 space-y-6">
+<!-- Log Item 1 -->
+<div class="flex gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0"></div>
+<div class="space-y-1">
+<p class="text-xs text-slate-900 dark:text-slate-200">
+<span class="font-bold">Admin (Sami)</span> changed status to <span class="text-primary font-bold">"In Progress"</span>.
+                                        </p>
+<p class="text-[10px] text-slate-400">Oct 24, 10:35 AM</p>
+</div>
+</div>
+<!-- Log Item 2 -->
+<div class="flex gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 mt-1.5 shrink-0"></div>
+<div class="space-y-1">
+<p class="text-xs text-slate-900 dark:text-slate-200">
+<span class="font-bold">System</span> assigned Provider <span class="font-bold text-slate-700 dark:text-slate-300">Ahmed Dridi</span>.
+                                        </p>
+<p class="text-[10px] text-slate-400">Oct 24, 09:15 AM</p>
+</div>
+</div>
+<!-- Log Item 3 -->
+<div class="flex gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 mt-1.5 shrink-0"></div>
+<div class="space-y-1">
+<p class="text-xs text-slate-900 dark:text-slate-200">
+<span class="font-bold">Payment Gateway</span> verified transaction #TRX-8821.
+                                        </p>
+<p class="text-[10px] text-slate-400">Oct 24, 09:05 AM</p>
+</div>
+</div>
+<!-- Log Item 4 -->
+<div class="flex gap-3">
+<div class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 mt-1.5 shrink-0"></div>
+<div class="space-y-1">
+<p class="text-xs text-slate-900 dark:text-slate-200">
+<span class="font-bold italic">Order auto-created</span> from Customer App.
+                                        </p>
+<p class="text-[10px] text-slate-400">Oct 24, 09:00 AM</p>
+</div>
+</div>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-800/50">
+<button class="w-full py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:shadow-sm transition-all">
+                                    Add Manual Note
+                                </button>
+</div>
+</div>
+<!-- Quick Map Preview -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
+<div class="h-40 bg-slate-200 relative">
+<div class="absolute inset-0 bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl">map</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/40"></div>
+<div class="absolute bottom-3 left-3 text-white">
+<p class="text-[10px] font-bold uppercase tracking-widest opacity-80">Service Location</p>
+<p class="text-xs font-bold">La Marsa, Tunis</p>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">near_me</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400">2.4 km from Provider</span>
+</div>
+<button class="text-primary text-xs font-bold">Open Maps</button>
+</div>
+</div>
+<!-- Secondary Support -->
+<div class="bg-secondary/10 border border-secondary/20 p-4 rounded-xl">
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-secondary">info</span>
+<div class="space-y-1">
+<p class="text-xs font-bold text-slate-900 dark:text-white">Dispute Prevention</p>
+<p class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">Ensure provider has uploaded the "Work Completion Certificate" before manually closing this order.</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-12 py-8 px-6 lg:px-10 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 bg-white dark:bg-slate-950">
+<p class="text-xs text-slate-400">© 2023 Khadmeni Service Marketplace Platform. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">API Access</a>
+<a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

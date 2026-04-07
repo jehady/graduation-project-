@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed-variant": "#334155",
+                        "tertiary-fixed": "#f1f5f9",
+                        "error-container": "#fee2e2",
+                        "primary-container": "#1e40af",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#e2e8f0",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#ffffff",
+                        "background": "#f6f7f8",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#bfdbfe",
+                        "on-primary-container": "#dbeafe",
+                        "surface-container-high": "#e5e8ee",
+                        "secondary": "#f97316",
+                        "on-primary-fixed-variant": "#1d4ed8",
+                        "secondary-fixed": "#ffedd5",
+                        "surface": "#f6f7f8",
+                        "on-background": "#0f172a",
+                        "surface-tint": "#1a3c7a",
+                        "secondary-container": "#ffedd5",
+                        "tertiary-container": "#334155",
+                        "on-secondary-fixed-variant": "#ea580c",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#0f172a",
+                        "error": "#ef4444",
+                        "on-secondary-container": "#7c2d12",
+                        "surface-container": "#ebedf2",
+                        "on-primary-fixed": "#1e3a8a",
+                        "primary-fixed-dim": "#bfdbfe",
+                        "surface-container-highest": "#dfe3ea",
+                        "primary": "#1a3c7a",
+                        "secondary-fixed-dim": "#fed7aa",
+                        "surface-container-low": "#f1f3f7",
+                        "outline": "#cbd5e1",
+                        "outline-variant": "#e2e8f0",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#0f172a",
+                        "surface-variant": "#f1f5f9",
+                        "on-surface-variant": "#64748b",
+                        "on-surface": "#0f172a",
+                        "on-error-container": "#7f1d1d",
+                        "inverse-surface": "#1e293b",
+                        "on-tertiary-container": "#f1f5f9",
+                        "on-secondary-fixed": "#7c2d12",
+                        "inverse-on-surface": "#f8fafc",
+                        "surface-dim": "#e2e4e9",
+                        "primary-fixed": "#dbeafe"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .double-soft-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+        }
+        .text-editorial-display {
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+        .text-editorial-label {
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar -->
+<aside class="w-64 bg-surface-bright flex flex-col h-screen sticky top-0 border-r border-outline-variant/40">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+</div>
+<div>
+<h1 class="font-headline font-bold text-lg text-primary leading-none">Khadmeni</h1>
+<p class="text-xs text-on-surface-variant">SaaS Dashboard</p>
+</div>
+</div>
+<nav class="flex-1 px-4 mt-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-body font-semibold">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary-fixed text-primary shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-body font-semibold">Employees</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-body font-semibold">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body font-semibold">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-outline-variant/40">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body font-semibold">Help Center</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar -->
+<header class="h-16 bg-surface-bright/90 backdrop-blur-md border-b border-outline-variant/40 flex items-center justify-between px-8 sticky top-0 z-10">
+<div class="flex-1 max-w-xl">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full focus:ring-2 focus:ring-primary text-sm transition-all" placeholder="Search for employees or records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container rounded-full">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-2"></div>
+<button class="flex items-center gap-2 pl-2 pr-1 py-1 rounded-full hover:bg-surface-container transition-colors">
+<img alt="User Profile Dropdown" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="Admin user profile picture with suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoo7iq9B0VByLq3Cja3Ik_-IFs2uBt2_9A4W5Y1vg_YephR-l5tJCOlk6a9Np-REXTxNVwUVG8UU6xJxBHsEmg7h2vOTbfqUXlj-4c_TRB9lrXuFqFtK6w2NdpsiIiYW-pn6_kt5IP59I57L05v5nZPrgsENw3iOvC2SOuDidIDYcV7zR7h5sHXed-BZbdeE_FEuglXmy1zUn-7sDPq3on2GphuVYxbHDIHmLDK-n-hqG0L0InVIi-ygYbQxOH_zclh9sq4c-lWGA"/>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</button>
+</div>
+</header>
+<!-- Content Area -->
+<main class="p-8 space-y-8">
+<!-- Breadcrumbs & Header Actions -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm mb-2">
+<span>Employees</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-on-surface font-semibold">Profile Details</span>
+</div>
+<h2 class="text- editorial-display text-4xl text-on-surface">Employee Profile</h2>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-6 py-2.5 bg-surface-container-high text-on-surface font-bold rounded-xl hover:bg-surface-container-highest transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">edit</span>
+                        Edit Profile
+                    </button>
+<button class="px-6 py-2.5 bg-secondary text-on-secondary font-bold rounded-xl shadow-lg hover:shadow-secondary/20 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">workspace_premium</span>
+                        Change Role
+                    </button>
+<button class="p-2.5 text-error hover:bg-error-container rounded-xl transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Bento Layout Grid -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Main Identity Card (Primary Visual) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-bright rounded-xl double-soft-shadow overflow-hidden relative">
+<div class="h-32 bg-primary relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 bg-[linear-gradient(45deg,#ffffff_25%,transparent_25%,transparent_50%,#ffffff_50%,#ffffff_75%,transparent_75%,transparent)] bg-[length:20px_20px]"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary to-primary-container"></div>
+</div>
+<div class="px-8 pb-8 flex flex-col md:flex-row gap-8">
+<div class="relative -mt-16">
+<img alt="Employee Photo" class="w-40 h-40 rounded-2xl border-4 border-surface-bright shadow-xl object-cover" data-alt="Portrait of a smiling male professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwuqZwQIKJe6eRykZUePAEDhCiYMI5o-QjaZ_vqmyNPsuMlD4UthcuWeTNWJrsoZ8xdw9lGEYPfQ1COTvyzSMSnHo6UDEY7ATOLJMoJ9PpG6vyAEW6a7Z4Q2iaIVTOF7pswh_pkHaJiq_5aXEfPvHp7cW_HIoevEsr5RgME3jDLUWUpS7ZJ94vzBiuVJ1h1lqRyQuR2dgNL445VPYzwwoXOhNoMiOvqfIsUCSJ2XnCOzL6RTsg89MEm_Qq8_YqElMyVFp0mMUKJ5o"/>
+<div class="absolute bottom-2 right-2 w-6 h-6 bg-green-500 border-2 border-surface-bright rounded-full"></div>
+</div>
+<div class="pt-4 flex-1">
+<div class="flex items-center gap-3 mb-1">
+<h3 class="text-2xl font-bold text-on-surface">Marcus Holloway</h3>
+<span class="px-3 py-1 bg-primary/10 text-primary text-editorial-label text-[10px] rounded-full">SENIOR ARCHITECT</span>
+</div>
+<p class="text-on-surface-variant flex items-center gap-1 mb-6">
+<span class="material-symbols-outlined text-base">location_on</span> San Francisco, CA • Engineering Dept.
+                            </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-12">
+<div class="space-y-1">
+<p class="text-editorial-label text-[10px] text-on-surface-variant">EMAIL ADDRESS</p>
+<p class="font-body text-on-surface font-semibold">m.holloway@khadmeni.com</p>
+</div>
+<div class="space-y-1">
+<p class="text-editorial-label text-[10px] text-on-surface-variant">PHONE NUMBER</p>
+<p class="font-body text-on-surface font-semibold">+1 (555) 012-3456</p>
+</div>
+<div class="space-y-1">
+<p class="text-editorial-label text-[10px] text-on-surface-variant">JOINED DATE</p>
+<p class="font-body text-on-surface font-semibold">March 12, 2021</p>
+</div>
+<div class="space-y-1">
+<p class="text-editorial-label text-[10px] text-on-surface-variant">REPORTING TO</p>
+<div class="flex items-center gap-2">
+<img class="w-5 h-5 rounded-full" data-alt="Manager profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRBZfGgH5_W49SLtkqqBPYH8T39KDExJaZQG2QJmBNZE7KhnCfncR26QUKGP7zxgMtdLJyjNTO8luilJxrQuBZrwprRO-8hSIsFeSQACZn75ucHuXJymXIo_wPUUXQBHNJT2lYaqNHMWoqKtuhWNilQP71DkaLJNTlPvKz2jSXNppetv-bcn8VelE_0Z6F3hEIMVQ5WEhevCQnZ0kjVsHQxFnJ5BnGvUUC3DAzQH7UUO0k4NBVvpEKQoMYigdKhF9z57Bj92g7MnI"/>
+<p class="font-body text-on-surface font-semibold">Sarah Chen</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Performance Metrics (Quick Stats) -->
+<div class="col-span-12 lg:col-span-4 grid grid-rows-2 gap-6">
+<div class="bg-primary p-6 rounded-xl double-soft-shadow flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/5 -mr-16 -mt-16 rounded-full group-hover:scale-110 transition-transform"></div>
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-on-primary/60 text-4xl">task_alt</span>
+<span class="text-green-400 font-bold text-sm">+12% vs LY</span>
+</div>
+<div>
+<p class="text-on-primary/70 text-editorial-label text-[10px]">COMPLETION RATE</p>
+<p class="text-4xl font-black text-on-primary">94.8%</p>
+</div>
+</div>
+<div class="bg-surface-bright p-6 rounded-xl double-soft-shadow flex flex-col justify-between border-b-4 border-secondary">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary text-4xl">timer</span>
+<span class="text-on-surface-variant font-bold text-sm">Top 5%</span>
+</div>
+<div>
+<p class="text-on-surface-variant text-editorial-label text-[10px]">AVG RESPONSE TIME</p>
+<p class="text-4xl font-black text-on-surface">1.2h</p>
+</div>
+</div>
+</div>
+<!-- Workload / Active Tasks -->
+<div class="col-span-12 lg:col-span-7 bg-surface-bright rounded-xl double-soft-shadow flex flex-col">
+<div class="px-8 py-6 border-b border-outline-variant/40 flex items-center justify-between">
+<h4 class="text-lg font-bold text-on-surface">Current Workload</h4>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-xs font-bold rounded-full">4 Active</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-xs font-bold rounded-full">2 Pending</span>
+</div>
+</div>
+<div class="p-4 space-y-4">
+<!-- Task Item -->
+<div class="p-4 rounded-xl hover:bg-surface-container-low transition-colors group flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-secondary/10 flex items-center justify-center rounded-xl text-secondary">
+<span class="material-symbols-outlined">architecture</span>
+</div>
+<div>
+<p class="font-bold text-on-surface group-hover:text-primary transition-colors">Neo-Workspace Blueprinting</p>
+<p class="text-xs text-on-surface-variant">Due in 3 days • Priority: High</p>
+</div>
+</div>
+<div class="w-24 bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 75%;"></div>
+</div>
+</div>
+<!-- Task Item -->
+<div class="p-4 rounded-xl hover:bg-surface-container-low transition-colors group flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-xl text-primary">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div>
+<p class="font-bold text-on-surface group-hover:text-primary transition-colors">Quarterly Resource Audit</p>
+<p class="text-xs text-on-surface-variant">Due in 1 week • Priority: Medium</p>
+</div>
+</div>
+<div class="w-24 bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 30%;"></div>
+</div>
+</div>
+<!-- Task Item -->
+<div class="p-4 rounded-xl hover:bg-surface-container-low transition-colors group flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-on-surface-variant/10 flex items-center justify-center rounded-xl text-on-surface-variant">
+<span class="material-symbols-outlined">security</span>
+</div>
+<div>
+<p class="font-bold text-on-surface group-hover:text-primary transition-colors">Credential Access Review</p>
+<p class="text-xs text-on-surface-variant">Due tomorrow • Priority: Urgent</p>
+</div>
+</div>
+<div class="w-24 bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full" style="width: 90%;"></div>
+</div>
+</div>
+</div>
+<div class="mt-auto p-4 bg-surface-container-low/50">
+<button class="w-full py-3 text-sm font-bold text-primary hover:bg-surface-container transition-colors rounded-lg">View All Tasks</button>
+</div>
+</div>
+<!-- Activity Log -->
+<div class="col-span-12 lg:col-span-5 bg-surface-bright rounded-xl double-soft-shadow flex flex-col">
+<div class="px-8 py-6 border-b border-outline-variant/40 flex items-center justify-between">
+<h4 class="text-lg font-bold text-on-surface">Recent Activity</h4>
+<button class="text-primary hover:underline text-xs font-bold">Clear Log</button>
+</div>
+<div class="p-8 relative">
+<!-- Timeline -->
+<div class="absolute left-[41px] top-10 bottom-10 w-px bg-outline-variant"></div>
+<div class="space-y-8 relative">
+<div class="flex gap-4">
+<div class="w-[18px] h-[18px] rounded-full bg-secondary border-4 border-surface-bright ring-4 ring-secondary/10 relative z-10 mt-1"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<p class="font-bold text-on-surface text-sm">Completed "Final QA Review"</p>
+<span class="text-[10px] text-on-surface-variant whitespace-nowrap">2m ago</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">System recorded a successful deployment of the architectural module V2.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-[18px] h-[18px] rounded-full bg-primary border-4 border-surface-bright ring-4 ring-primary/10 relative z-10 mt-1"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<p class="font-bold text-on-surface text-sm">Uploaded Documentation</p>
+<span class="text-[10px] text-on-surface-variant whitespace-nowrap">4h ago</span>
+</div>
+<div class="flex items-center gap-2 p-2 bg-surface-container-low rounded mt-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">description</span>
+<span class="text-[10px] font-semibold text-on-surface truncate">resource_allocation_plan.pdf</span>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-[18px] h-[18px] rounded-full bg-outline border-4 border-surface-bright ring-4 ring-outline/10 relative z-10 mt-1"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<p class="font-bold text-on-surface text-sm">Clocked In</p>
+<span class="text-[10px] text-on-surface-variant whitespace-nowrap">8h ago</span>
+</div>
+<p class="text-xs text-on-surface-variant">Remote session started from IP: 192.168.1.45</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

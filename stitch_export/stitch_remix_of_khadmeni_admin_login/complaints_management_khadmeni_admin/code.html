@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Khadmeni Admin - Complaints Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a3c7a",
+                        "secondary": "#FF8C42",
+                        "success": "#28A745",
+                        "warning": "#FFC107",
+                        "danger": "#DC3545",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121720",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-background-dark border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">handyman</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-primary dark:text-slate-100 leading-none">Khadmeni</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Admin Dashboard</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span class="text-sm font-medium">Providers</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-sm font-medium">Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">corporate_fare</span>
+<span class="text-sm font-medium">Companies</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">construction</span>
+<span class="text-sm font-medium">Services</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary dark:text-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">report_problem</span>
+<span class="text-sm font-semibold">Complaints</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">credit_card</span>
+<span class="text-sm font-medium">Subscriptions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">card_giftcard</span>
+<span class="text-sm font-medium">Rewards</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="text-sm font-medium">Advertisements</span>
+</a>
+<div class="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">System Settings</span>
+</a>
+</div>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Header -->
+<header class="h-16 bg-white dark:bg-background-dark border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8">
+<div class="flex items-center gap-4 flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg bg-slate-50 dark:bg-slate-800 border-none focus:ring-2 focus:ring-primary/50 text-sm" placeholder="Search complaints, order IDs or users..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-danger rounded-full border-2 border-white dark:border-background-dark"></span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:border-slate-800"></div>
+<div class="flex items-center gap-3 ml-2">
+<div class="text-right">
+<p class="text-sm font-semibold">Ahmed Mansour</p>
+<p class="text-xs text-slate-500">Super Admin</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a male professional admin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgDvQV-gLefUtsOxnKsFDuyjM0hbimEF-3vjistkwY9cX7w2j3ZA90SqXzxpleQr1dsz7SJ6uevp3dZ01uzFXclXjwy4O80YMNSh0aq7OPg45i76Es4zUwO0r6EalU34V-8kzX4OmZmBhhoqT3Xk_xQelW3s5DbVZBOmUuhVZEf7eyesjUk1WJx9zot24kpNTop4W1-uUNXIeKPwrHad8-dTA0RcnCJ6q856xqMTf1qdkRaZkULDzy_Ey8YZmxLIs5PLu0xZ2r0VA"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Body -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- Page Title -->
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Complaints Management</h2>
+<p class="text-slate-500 text-sm">Review and resolve disputes between users and service providers.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-lg">download</span>
+                        Export Report
+                    </button>
+</div>
+</div>
+<!-- Metric Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-background-dark p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<span class="text-success text-xs font-bold bg-success/10 px-2 py-1 rounded-full">+12.5%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium mt-4">Total Complaints</p>
+<h3 class="text-2xl font-bold mt-1">1,284</h3>
+</div>
+<div class="bg-white dark:bg-background-dark p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-warning/10 rounded-lg">
+<span class="material-symbols-outlined text-warning">pending_actions</span>
+</div>
+<span class="text-warning text-xs font-bold bg-warning/10 px-2 py-1 rounded-full">Active</span>
+</div>
+<p class="text-slate-500 text-sm font-medium mt-4">Open Disputes</p>
+<h3 class="text-2xl font-bold mt-1">42</h3>
+</div>
+<div class="bg-white dark:bg-background-dark p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-secondary/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary">hourglass_empty</span>
+</div>
+<span class="text-danger text-xs font-bold bg-danger/10 px-2 py-1 rounded-full">-2.4%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium mt-4">Pending Resolution</p>
+<h3 class="text-2xl font-bold mt-1">15</h3>
+</div>
+<div class="bg-white dark:bg-background-dark p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-success/10 rounded-lg">
+<span class="material-symbols-outlined text-success">check_circle</span>
+</div>
+<span class="text-success text-xs font-bold bg-success/10 px-2 py-1 rounded-full">+18.2%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium mt-4">Resolved Cases</p>
+<h3 class="text-2xl font-bold mt-1">892</h3>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8 items-start">
+<!-- Main Table Section -->
+<div class="xl:col-span-2 space-y-6">
+<!-- Filters and Tabs -->
+<div class="bg-white dark:bg-background-dark rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="flex border-b border-slate-100 dark:border-slate-800 px-6 overflow-x-auto">
+<button class="px-4 py-4 text-sm font-bold text-primary border-b-2 border-primary -mb-[1px] whitespace-nowrap">All Complaints</button>
+<button class="px-4 py-4 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary whitespace-nowrap">New</button>
+<button class="px-4 py-4 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary whitespace-nowrap">In Progress</button>
+<button class="px-4 py-4 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary whitespace-nowrap">Resolved</button>
+<button class="px-4 py-4 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary whitespace-nowrap">Closed</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50">
+<tr>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">ID</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Customer</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Provider</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Order ID</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Date</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-primary">#CMP-4521</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-slate-100">
+<img alt="Customer" class="w-full h-full object-cover" data-alt="Portrait of a smiling young woman customer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLQVqNX2M3RuYnBYyfo-qw41N5YNC_UzpNiay3C1yXVHb98Xq2I7aSR_2IgjNTh6OaEsTWjYGPP07nn1DQ3pjgLiBBUsSUWxU6JdHX8akeeoCk_BWKk-ToUg5RS0ZGOu_6BgIXtcxtJvjKRC63AwuMyY8MHfe2Ut1DYeRqQn4BePWeVpwwP5Df18QzD3wWFZ-clwtd1kowSaPkxX4DBGfUXS4P3x1u1VCk2y-QsPSJqcgJbnuEhwyG_wMjAZBJH_DtErvhkGncslU"/>
+</div>
+<span class="text-sm font-medium">Sara Jones</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-slate-100">
+<img alt="Provider" class="w-full h-full object-cover" data-alt="Professional service provider worker avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVlv3o-tnoDbD0cdgcURUWAlk6fR5kvGi55bAyY0yZrLUmSbWoE3791z56LyBZNWDpgMG6B-YTC38cxsV3nXvzj2e5EZxIUuiNJGjk5F4jH1smANsZAwRR8CUODpSaC6-AlQZq0BjaSpiKU-Mfy9JpBM5YcYL_0EX8s8h2R4YAdz17DkILlJq9PaEqb5qsBzK3zZYEbk-XNKFu6SAw6LBNdySwy0GAo3ANC0dzCavZd7TUjSDN_J5nrVmPH2NFURq-i2ZXA3mKo3M"/>
+</div>
+<span class="text-sm font-medium">Modern Repairs</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">#ORD-9920</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary uppercase">New</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 24, 2023</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-bold text-primary hover:underline">View Details</button>
+</td>
+</tr>
+<tr class="bg-primary/5 dark:bg-primary/10 hover:bg-primary/10 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-primary">#CMP-4520</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-slate-100">
+<img alt="Customer" class="w-full h-full object-cover" data-alt="Portrait of a male customer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtTngcrZJk86TrjA3sjj_iZBRcu8Lum5Qg9p4GajxtIXzx0eXPw0C5SAdBYRgmh-Xma-j9EuA2pGU_Bu_ngqJxBQHZ6TM0MBr7gkfHgu-Q5Nve5-j5EPeO_T6634aa7cu9gNPHGyJxGi7MIoGADQYdwwbvzvB1NFQKZbWLsBPcduOBi8K4q2UbjiWuywftcSFjYMTCWMGw6I4cPjO2SyWVNsUU8z3_lmbeeb7CF4novVkbzf9r_5JEppqOrtfuDPkIwMlZJ5c4FWU"/>
+</div>
+<span class="text-sm font-medium">Marc Wilson</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-slate-100">
+<img alt="Provider" class="w-full h-full object-cover" data-alt="Professional electrician provider" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbkdqlkB8FyyV41ASrgyRsvoDn6Y1bOMJwEPUSkgmu67Lz5Fc--XH62w0jFnQ0K-0AtEszuweoc_WEnna2B0I7qbXZjH_idocIe7_1enFcp32A2xnugyyZ-LY8O-YgjP8NZ4DkkA4Sq2WTbsd8kVEV8o6s6vHb89fBVb-TpqSFEoZCV5WuwKZgMi4a2Owq7NrO2zR4sm9N9i3jz0VX80KZzIqusGqKFE_rylU-3jRoi_CzR3u0zdHj8M5SGtztWGsQcxkmoLly7eo"/>
+</div>
+<span class="text-sm font-medium">Volt Master Co.</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">#ORD-9811</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-warning/20 text-warning-700 uppercase" style="color: #997404;">Investigation</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 23, 2023</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-bold text-primary hover:underline">View Details</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-primary">#CMP-4519</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-slate-100">
+<img alt="Customer" class="w-full h-full object-cover" data-alt="Female customer profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDwQ4rggbIhj91vGtxvl10UTfwnpIvJ60T7btLd-TElG8wpldVnuGkqdXdTZ2d6Sg7YCSlrjTwwNg-_i1BiuJ-WOFv500ozFglBXfq_T71N8pNO5i5sDXWxlyTaPUhzZ9DDv42nEqJJ-PlZoMh_K5jQSxnClXXMus6Lot688a_JaEQi891BtnYlY8TqvOgkE-RtfXeh__YbDDk3VzKITPpWcruN2fjYyo6AnnJBXvDVNSuJY5sMHgftg3HCXifZSPqMv8PC7ksyDg"/>
+</div>
+<span class="text-sm font-medium">Lina Abidi</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-slate-100">
+<img alt="Provider" class="w-full h-full object-cover" data-alt="Cleaning service provider avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhGSVUAY1nTnHjG_gh7acaW6l6NhOz4_SRPIMQqOFAaNxuA-7nsIrNbHglJ8rwmZvdqapce0cOwYpR3J4_uKqKAaOjKlzq9W5QnV3_JqFn4tYNtydnonIkeSZ3ScXzXQyp9Ejx8CsahZalEJoWH6wfNugvnTabPtz1wU_RHbFX6kapU9HG4PVDw4a3nJhQmjOkIC7jULJb7y_C-aupl-q7YDI1s825K4Rty1gCxEwnMcT7fPatmDpbrxQS7jfrYE-ZYO6NnsOqjiM"/>
+</div>
+<span class="text-sm font-medium">Shine Cleaners</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">#ORD-9755</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-success/10 text-success uppercase">Resolved</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 22, 2023</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-bold text-primary hover:underline">View Details</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-primary">#CMP-4518</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-slate-100">
+<img alt="Customer" class="w-full h-full object-cover" data-alt="Middle aged male customer avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvGjczImOOyLT6g9kH_JfykutRyr7QqWCq47qcoU8C7JzLMHBXAbkacSk4E5ZhbtPVVKBJOG9W6hLAM7D7QyBjxKS_mkcvIOzC0-VA8zNEjJjEIvW9nE3oBflgsfJGQO_iF7NcguDeX3R1SGi3uzxW-rbtqqRlXtdmFrBPQT09gTG-QZtp_T1XbXZI7MIOVSNz2tQMm8RiJH_F_U2enVwwDMI7WgVZK2JECyZ3CXMB-ymszoDQ0RiYwODDvbl4aGa_5rJIQSpyC50"/>
+</div>
+<span class="text-sm font-medium">Omar Brahmi</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-slate-100">
+<img alt="Provider" class="w-full h-full object-cover" data-alt="Plumbing company profile logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0x_pqvUroeD2gQbiHrHj3BqniqMjnzN0-vnA-pVUZvngk8BT90Q_60XcZN7PRdiyLPxrJx5wpWDkcE6dyc40YdLSqBDb1jSycQCqdberfV5FbA8nFTS3gDeEnZWaQ1R2ZbBmdH-_gEWfU8uJ_A41MKs5cmSsUKxeSUyy9ayc2lsixBaZwNCfBKCGEMPp7rWBPBKdYOpdj0a_qYEJ2T9V9IVysNQpT6tRzPUEXcVdk1lhcEapqCnKeb8rD5AXrhIuToOg_P4YMS5E"/>
+</div>
+<span class="text-sm font-medium">Elite Plumbing</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">#ORD-9600</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-500 uppercase">Closed</span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 21, 2023</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-bold text-primary hover:underline">View Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<p class="text-sm text-slate-500">Showing 1 to 10 of 42 entries</p>
+<div class="flex gap-2">
+<button class="p-2 border border-slate-200 dark:border-slate-700 rounded hover:bg-slate-50">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="px-3 py-1 bg-primary text-white rounded text-sm font-medium">1</button>
+<button class="px-3 py-1 border border-slate-200 dark:border-slate-700 rounded text-sm font-medium hover:bg-slate-50">2</button>
+<button class="px-3 py-1 border border-slate-200 dark:border-slate-700 rounded text-sm font-medium hover:bg-slate-50">3</button>
+<button class="p-2 border border-slate-200 dark:border-slate-700 rounded hover:bg-slate-50">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Detail Panel -->
+<div class="space-y-6">
+<div class="bg-white dark:bg-background-dark rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm p-6">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-bold text-slate-900 dark:text-white">Complaint Summary</h4>
+<span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-warning/10 text-warning uppercase">Under Investigation</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between text-xs font-medium text-slate-500 uppercase tracking-wider">
+<span>Reference: #CMP-4520</span>
+<span>24h ago</span>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg text-sm text-slate-700 dark:text-slate-300 leading-relaxed italic">
+                                "The electrician arrived 2 hours late and did not complete the wiring for the living room as agreed. He demanded extra payment for materials that were supposedly included in the quote."
+                            </div>
+<div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+<p class="text-xs font-semibold text-slate-500 uppercase mb-3">Order Details</p>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm text-slate-600">Order ID:</span>
+<span class="text-sm font-medium">#ORD-9811</span>
+</div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm text-slate-600">Service:</span>
+<span class="text-sm font-medium">Home Electrical Repair</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-slate-600">Total Amount:</span>
+<span class="text-sm font-bold text-primary">120.00 TND</span>
+</div>
+</div>
+<div class="pt-6 space-y-3">
+<p class="text-xs font-semibold text-slate-500 uppercase mb-1">Admin Actions</p>
+<label class="block text-xs text-slate-500 mb-1">Update Status</label>
+<select class="w-full text-sm rounded-lg border-slate-200 dark:bg-slate-800 dark:border-slate-700 mb-4">
+<option>Investigation</option>
+<option>Awaiting User Reply</option>
+<option>Resolved</option>
+<option>Closed</option>
+</select>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-2 px-3 bg-primary text-white rounded-lg text-xs font-bold hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">payments</span>
+                                        Compensate
+                                    </button>
+<button class="flex items-center justify-center gap-2 py-2 px-3 bg-danger text-white rounded-lg text-xs font-bold hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">gavel</span>
+                                        Penalize
+                                    </button>
+</div>
+<button class="w-full py-2.5 px-4 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                    Mark as Resolved &amp; Close
+                                </button>
+</div>
+</div>
+</div>
+<!-- Mini Map or Provider Location Insight -->
+<div class="bg-white dark:bg-background-dark rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm p-4">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<h5 class="text-sm font-bold">Service Location</h5>
+</div>
+<div class="h-32 rounded-lg bg-slate-200 relative overflow-hidden">
+<img alt="Map Location" class="w-full h-full object-cover grayscale opacity-50" data-location="Tunis, Tunisia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCABbRamjPd9cKb0FSXsFdre8F7cEbfTDYQINqWiWYCLOL_A5vrwaZV2rjy7REisEuooWMHFgBnUReldHGQ18wuVxIA74iX4u2PQ19XyVMD9h-jD5PfhB7cj9Muvd3RJInWmbuwzhBXVG6vWtHGlNO0_RcnB1ZMeXi0T9HJEbL271oit39Hpp6lCs3S_VH_MahA-vu3bW9wPQtAtDDUMR9fSicCzkNR6E7I3CsFBk-_YgGi1dAeQxVqfD1WdhdM34NiFwviv744J0w"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-danger text-3xl">location_on</span>
+</div>
+</div>
+<p class="mt-3 text-xs text-slate-500 text-center">Avenue Habib Bourguiba, Tunis</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Khadmeni Admin - Company Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a3c7a",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121720",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col fixed h-full">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary rounded-lg p-2 text-white">
+<span class="material-symbols-outlined">business_center</span>
+</div>
+<div>
+<h1 class="text-primary font-bold text-lg leading-tight">Khadmeni Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Enterprise Portal</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 bg-primary/10 text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined fill">domain</span>
+<span class="text-sm font-bold">Companies</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Employees</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-sm font-medium">Job Postings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="text-sm font-medium">Verifications</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+                    Add Company
+                </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-72">
+<!-- Header -->
+<header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 sticky top-0 z-10">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20" placeholder="Global search..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-700 mx-2"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right">
+<p class="text-sm font-bold">Admin User</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider font-bold">Super Admin</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden border-2 border-primary/20">
+<img class="w-full h-full object-cover" data-alt="Admin professional profile headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArAq_xiQ9wQvi-Dq3CjWwwi9L5RCJLxCxtiIPzDWke41oeGe2j19Juf33Kx5oVJwct-ohuBrpVbm-8pC6LN3PEpNho5KMRYWgU5RHey_y-fVtY3nsNzssPwk4j-DyLzP25u9oqyMnlbJOfGnCqgTvtnXqXawZcCtrUxeMRaf4m2j1RyoJNcLBp1Qa0i1fU6SNgtJ4-ieW_OtrGdxKysIatA50V9RGzANbCra6bMWmyA8z6eeYQ0sdcFPBZNz1u2TIAo_XyKdKI544"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Body -->
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Page Title -->
+<div class="mb-8">
+<h2 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Company Management</h2>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Oversee and manage all registered enterprises, their verification status, and employee counts.</p>
+</div>
+<!-- Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Total Companies</p>
+<div class="flex items-end justify-between">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white">890</h3>
+<span class="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded">+5.3%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Active Companies</p>
+<div class="flex items-end justify-between">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white">750</h3>
+<span class="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded">+2.1%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Pending Verification</p>
+<div class="flex items-end justify-between">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white">45</h3>
+<span class="text-xs font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded">-1.2%</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Banned Companies</p>
+<div class="flex items-end justify-between">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white">95</h3>
+<span class="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded">+0.5%</span>
+</div>
+</div>
+</div>
+<!-- Filters -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm mb-6">
+<div class="flex flex-wrap items-center gap-4">
+<div class="flex-1 min-w-[300px] relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary" placeholder="Search by company name..." type="text"/>
+</div>
+<div class="w-48">
+<select class="w-full py-2 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary">
+<option>Filter by Status</option>
+<option>Active</option>
+<option>Pending</option>
+<option>Banned</option>
+</select>
+</div>
+<div class="w-56">
+<select class="w-full py-2 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary">
+<option>Filter by Employees</option>
+<option>1-10 Employees</option>
+<option>11-50 Employees</option>
+<option>51-200 Employees</option>
+<option>201+ Employees</option>
+</select>
+</div>
+<button class="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">tune</span>
+                            Reset
+                        </button>
+</div>
+</div>
+<!-- Data Table -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Company Name</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Contact Person</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Phone</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Employees</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-bold">TC</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">TechCorp Solutions</p>
+<p class="text-xs text-slate-500">Software &amp; Services</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-medium">Ahmed Mansour</p>
+<p class="text-xs text-slate-500">CEO</p>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">+216 22 456 789</td>
+<td class="px-6 py-4 text-sm font-medium">124</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">
+                                            Active
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors" title="Edit">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors" title="View Employees">
+<span class="material-symbols-outlined text-xl">badge</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-red-600 transition-colors" title="Ban Company">
+<span class="material-symbols-outlined text-xl">block</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center text-orange-600 font-bold">NB</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">NeoBank Africa</p>
+<p class="text-xs text-slate-500">Financial Services</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-medium">Sarah Ben Ali</p>
+<p class="text-xs text-slate-500">HR Manager</p>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">+216 71 888 222</td>
+<td class="px-6 py-4 text-sm font-medium">52</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400">
+                                            Pending
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors" title="Edit">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors" title="View Employees">
+<span class="material-symbols-outlined text-xl">badge</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-red-600 transition-colors" title="Ban Company">
+<span class="material-symbols-outlined text-xl">block</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center text-red-600 font-bold">GF</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">Global Freight Ltd</p>
+<p class="text-xs text-slate-500">Logistics</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-medium">Walid Kassab</p>
+<p class="text-xs text-slate-500">Operations Director</p>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">+216 55 123 456</td>
+<td class="px-6 py-4 text-sm font-medium">310</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400">
+                                            Banned
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors" title="Edit">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors" title="View Employees">
+<span class="material-symbols-outlined text-xl">badge</span>
+</button>
+<button class="p-1.5 text-red-600 transition-colors" title="Unban Company">
+<span class="material-symbols-outlined text-xl">lock_open</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 font-bold">DS</div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">Design Studio Z</p>
+<p class="text-xs text-slate-500">Creative Arts</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-medium">Lina Guezzi</p>
+<p class="text-xs text-slate-500">Creative Lead</p>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">+216 20 111 222</td>
+<td class="px-6 py-4 text-sm font-medium">12</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">
+                                            Active
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors" title="Edit">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors" title="View Employees">
+<span class="material-symbols-outlined text-xl">badge</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-red-600 transition-colors" title="Ban Company">
+<span class="material-symbols-outlined text-xl">block</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<p class="text-xs text-slate-500 font-medium">Showing 1 to 4 of 890 results</p>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold text-slate-400 cursor-not-allowed">Previous</button>
+<button class="px-3 py-1.5 bg-primary text-white rounded-lg text-xs font-bold">1</button>
+<button class="px-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold hover:bg-white dark:hover:bg-slate-700">2</button>
+<button class="px-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold hover:bg-white dark:hover:bg-slate-700">3</button>
+<span class="text-slate-400 px-1">...</span>
+<button class="px-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold hover:bg-white dark:hover:bg-slate-700">Next</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
