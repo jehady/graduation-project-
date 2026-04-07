@@ -1176,6 +1176,82 @@ select {
   gap: 12px;
 }
 
+.floating-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.46);
+  backdrop-filter: blur(10px);
+}
+
+.floating-modal-card {
+  width: min(100%, 760px);
+  max-height: min(88vh, 860px);
+  overflow: auto;
+  padding: 28px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(249, 115, 22, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 249, 252, 0.98));
+  box-shadow:
+    0 32px 80px rgba(15, 23, 42, 0.2),
+    0 8px 24px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(26, 60, 122, 0.08);
+}
+
+.floating-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.floating-modal-header h3 {
+  margin: 6px 0 10px;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  letter-spacing: -0.04em;
+}
+
+.floating-modal-copy {
+  margin: 0;
+  max-width: 560px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.floating-modal-close {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 14px;
+  background: rgba(26, 60, 122, 0.08);
+  color: var(--primary);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.floating-modal-form {
+  display: grid;
+  gap: 24px;
+}
+
+.floating-modal-field-full {
+  grid-column: 1 / -1;
+}
+
+.floating-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+}
+
 .detail-item {
   display: grid;
   gap: 4px;
@@ -4415,6 +4491,10 @@ select {
 
   .company-ops-grid {
     grid-template-columns: 1fr;
+  }
+
+  .floating-modal-card {
+    padding: 22px;
   }
 
   .table-footer {

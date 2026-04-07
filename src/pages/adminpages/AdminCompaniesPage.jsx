@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PortalLayout from "../../components/PortalLayout";
 import RecordsTable from "../../components/RecordsTable";
 import StatsGrid from "../../components/StatsGrid";
@@ -76,9 +77,9 @@ export default function AdminCompaniesPage() {
       heroCopy="This page follows the Stitch company management screen and gives us a strong foundation for company controls and verification workflows."
       heroVariant="hero-card-admin"
       heroActions={
-        <button className="primary-button" type="button">
+        <Link className="primary-button" to="/admin/companies/add">
           Add company
-        </button>
+        </Link>
       }
     >
       <StatsGrid items={companyStats} />

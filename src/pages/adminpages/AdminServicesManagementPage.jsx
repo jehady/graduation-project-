@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PortalLayout from "../../components/PortalLayout";
 import RecordsTable from "../../components/RecordsTable";
 import StatsGrid from "../../components/StatsGrid";
@@ -73,9 +74,9 @@ export default function AdminServicesManagementPage() {
           <button className="secondary-button" type="button">
             Bulk export
           </button>
-          <button className="primary-button" type="button">
+          <Link className="primary-button" to="/admin/services/add">
             Add new service
-          </button>
+          </Link>
         </>
       }
     >

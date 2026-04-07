@@ -1,6 +1,8 @@
+import { useState } from "react";
 import PortalLayout from "../../components/PortalLayout";
 import RecordsTable from "../../components/RecordsTable";
 import StatsGrid from "../../components/StatsGrid";
+import FloatingFormModal from "../../components/portalPages/FloatingFormModal";
 import {
   EntityCell,
   MetricText,
@@ -10,6 +12,7 @@ import {
   TableFooter,
   TableSearchField,
 } from "../../components/tablePrimitives";
+import { addProviderModalFields } from "../../data/mockData/admin/modals";
 import { adminNavItems } from "../../data/nav";
 
 const providerStats = [
@@ -65,87 +68,101 @@ const providerRows = [
 ];
 
 export default function AdminProvidersPage() {
+  const [isAddProviderOpen, setIsAddProviderOpen] = useState(false);
+
   return (
-    <PortalLayout
-      brandSubtitle="Super Admin"
-      navItems={adminNavItems}
-      sessionTitle="Admin session"
-      sessionSubtitle="Provider operations"
-      heroEyebrow="Provider management"
-      heroTitle="Review, approve, and monitor all platform providers."
-      heroCopy="This page is adapted from the Stitch provider management screen and is ready for real provider API data."
-      heroVariant="hero-card-admin"
-      heroActions={
-        <button className="primary-button" type="button">
-          Add new provider
-        </button>
-      }
-    >
-      <StatsGrid items={providerStats} />
-      <RecordsTable
-        eyebrow="Registry"
-        title="Provider directory"
-        columns={providerColumns}
-        rows={providerRows}
-        toolbar={
-          <>
-            <div className="table-toolbar-group table-toolbar-grow">
-              <TableSearchField placeholder="Search providers, service, or ID..." />
-            </div>
-            <div className="table-toolbar-group">
-              <select className="table-filter-select table-filter-select-compact" defaultValue="All Status">
-                <option>All Status</option>
-                <option>Active</option>
-                <option>Pending KYC</option>
-                <option>Suspended</option>
-              </select>
-              <select className="table-filter-select table-filter-select-compact" defaultValue="All Services">
-                <option>All Services</option>
-                <option>Electrical</option>
-                <option>HVAC</option>
-                <option>Plumbing</option>
-              </select>
-            </div>
-          </>
+    <>
+      <PortalLayout
+        brandSubtitle="Super Admin"
+        navItems={adminNavItems}
+        sessionTitle="Admin session"
+        sessionSubtitle="Provider operations"
+        heroEyebrow="Provider management"
+        heroTitle="Review, approve, and monitor all platform providers."
+        heroCopy="This page is adapted from the Stitch provider management screen and is ready for real provider API data."
+        heroVariant="hero-card-admin"
+        heroActions={
+          <button className="primary-button" type="button" onClick={() => setIsAddProviderOpen(true)}>
+            Add new provider
+          </button>
         }
-        footer={<TableFooter label="Showing 1 to 10 of 1,284 providers" />}
-        renderCell={(row, column) => {
-          if (column.key === "name") {
-            return (
-              <EntityCell
-                name={row.name}
-                meta={`${row.providerId} - ${row.since}`}
-                tone={row.tone}
-              />
-            );
+      >
+        <StatsGrid items={providerStats} />
+        <RecordsTable
+          eyebrow="Registry"
+          title="Provider directory"
+          columns={providerColumns}
+          rows={providerRows}
+          toolbar={
+            <>
+              <div className="table-toolbar-group table-toolbar-grow">
+                <TableSearchField placeholder="Search providers, service, or ID..." />
+              </div>
+              <div className="table-toolbar-group">
+                <select className="table-filter-select table-filter-select-compact" defaultValue="All Status">
+                  <option>All Status</option>
+                  <option>Active</option>
+                  <option>Pending KYC</option>
+                  <option>Suspended</option>
+                </select>
+                <select className="table-filter-select table-filter-select-compact" defaultValue="All Services">
+                  <option>All Services</option>
+                  <option>Electrical</option>
+                  <option>HVAC</option>
+                  <option>Plumbing</option>
+                </select>
+              </div>
+            </>
           }
+          footer={<TableFooter label="Showing 1 to 10 of 1,284 providers" />}
+          renderCell={(row, column) => {
+            if (column.key === "name") {
+              return (
+                <EntityCell
+                  name={row.name}
+                  meta={`${row.providerId} - ${row.since}`}
+                  tone={row.tone}
+                />
+              );
+            }
 
-          if (column.key === "service") {
-            return <StackText primary={row.service} secondary={row.region} />;
-          }
+            if (column.key === "service") {
+              return <StackText primary={row.service} secondary={row.region} />;
+            }
 
-          if (column.key === "status") {
-            const tone =
-              row.status === "Active"
-                ? "success-soft"
-                : row.status === "Suspended"
-                  ? "danger-soft"
-                  : "neutral";
-            return <StatusBadge status={row.status} tone={tone} />;
-          }
+            if (column.key === "status") {
+              const tone =
+                row.status === "Active"
+                  ? "success-soft"
+                  : row.status === "Suspended"
+                    ? "danger-soft"
+                    : "neutral";
+              return <StatusBadge status={row.status} tone={tone} />;
+            }
 
-          if (column.key === "requests") {
-            return <MetricText>{row.requests} jobs</MetricText>;
-          }
+            if (column.key === "requests") {
+              return <MetricText>{row.requests} jobs</MetricText>;
+            }
 
-          if (column.key === "actions") {
-            return <TableActions name={row.name} danger={row.status === "Suspended"} />;
-          }
+            if (column.key === "actions") {
+              return <TableActions name={row.name} danger={row.status === "Suspended"} />;
+            }
 
-          return row[column.key];
-        }}
+            return row[column.key];
+          }}
+        />
+      </PortalLayout>
+
+      <FloatingFormModal
+        isOpen={isAddProviderOpen}
+        eyebrow="New provider"
+        title="Create a provider profile"
+        description="Add the essential provider details and start the onboarding flow without leaving the registry."
+        fields={addProviderModalFields}
+        submitLabel="Create provider"
+        onClose={() => setIsAddProviderOpen(false)}
       />
-    </PortalLayout>
+    </>
   );
 }
 
